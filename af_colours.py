@@ -1,3 +1,5 @@
+import warnings
+
 def af_colours(palette: str,
                colour_format = "hex",
                number_of_colours = 2):
@@ -11,8 +13,13 @@ def af_colours(palette: str,
     palette : string
         Type of palette required, with accepted values of "duo",
         "focus", "categorical", and "sequential".
+
     colour_format : string
         Colour format required, with accepted values of "hex" or "rgb".
+
+    number_of_colours : int
+        Number of colours required (categorical palette only). Takes values between
+        2 and 6. Returns 2 colours by default.
 
     Raises
     ------
@@ -46,11 +53,25 @@ def af_colours(palette: str,
     elif palette == "categorical":
         chosen_colours_list = categorical_colours(colour_format,
                                                   number_of_colours)
-
+    
+    if number_of_colours > len(chosen_colours_list):
+         warnings.warn("Warning: list of colours returned is shorter " + 
+                       "than number of colours requested. Consult " +
+                       "guidance to ensure correct palette chosen.",
+                       stacklevel = 2)
+    if number_of_colours < len(chosen_colours_list):
+         warnings.warn("Warning: list of colours returned is longer " + 
+                       "than number of colours requested. Consult " +
+                       "guidance to ensure correct palette chosen.",
+                       stacklevel = 2)
+    if number_of_colours > 2
+        warnings.warn("Please be aware that line charts using more " +
+                      "than two colours may not be accessible to " +
+                      "all users.")
     return chosen_colours_list
 
 
-def categorical_colours(colour_format = "hex", number_of_colours = 6):
+def categorical_colours(colour_format = "hex", number_of_colours = 2):
     """ 
     Return the Analysis Function categorical colour palette as a list
     in hex or rgb format for up to 6 colours. If number_of_colours is 
@@ -60,6 +81,10 @@ def categorical_colours(colour_format = "hex", number_of_colours = 6):
     ----------
     colour_format : string
         Colour format required, with accepted values of "hex" or "rgb".
+
+    number_of_colours : int
+        Number of colours required, with accepted values between 2 and 6 inclusive.
+        Returns 2 colours if no value given.
 
     Raises
     ------
