@@ -45,6 +45,7 @@ def af_colours(palette: str,
              " is incorrect, must be hex or rgb as a string.")
     
     elif palette == "sequential":
+        number_of_colours = 3
         chosen_colours_list =sequential_colours(colour_format)
     elif palette == "focus":
         chosen_colours_list = focus_colours(colour_format)
