@@ -66,9 +66,9 @@ def af_colours(palette: str,
                        "guidance to ensure correct palette chosen.",
                        stacklevel = 2)
     if number_of_colours > 2:
-        warnings.warn("Please be aware that line charts using more " +
-                      "than two colours may not be accessible to " +
-                      "all users.", stacklevel = 2)
+        warnings.warn("Line charts using more than two colours " +
+                      "may not meet accessibility standards.",
+                      stacklevel = 2)
     return chosen_colours_list
 
 
