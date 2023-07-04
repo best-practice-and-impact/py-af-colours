@@ -18,15 +18,10 @@ def af_colours(palette: str,
         Colour format required, with accepted values of "hex" or "rgb".
 
     number_of_colours : int
-<<<<<<< HEAD
         Number of colours required (categorical palette only). Takes
         values between 2 and 6. Returns 2 colours by default. If a
         palette other than categorical is chosen, any value passed
         is ignored.
-=======
-        Number of colours required (categorical palette only). Takes values between
-        2 and 6. Returns 2 colours by default.
->>>>>>> e46c2dbd46508ca2a7a64970fb5194632ec03098
 
     Raises
     ------
