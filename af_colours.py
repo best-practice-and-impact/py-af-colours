@@ -1,6 +1,8 @@
+import warnings
+
 def af_colours(palette: str,
                colour_format = "hex",
-               number_of_colours = 2):
+               number_of_colours = 6):
     """ 
     Return the chosen Analysis Function colour palette in hex or rgb
     format. For the categorical palette, this can be a chosen number of
@@ -11,8 +13,15 @@ def af_colours(palette: str,
     palette : string
         Type of palette required, with accepted values of "duo",
         "focus", "categorical", and "sequential".
+
     colour_format : string
         Colour format required, with accepted values of "hex" or "rgb".
+
+    number_of_colours : int
+        Number of colours required (categorical palette only). Takes
+        values between 2 and 6. Returns 2 colours by default. If a
+        palette other than categorical is chosen, any value passed
+        is ignored.
 
     Raises
     ------
@@ -26,8 +35,6 @@ def af_colours(palette: str,
         chosen_colours_list
 
     """
-    colour_format = colour_format.lower()
-    
     if palette not in ["categorical", "duo", "sequential", "focus"]:
         raise ValueError(
              "palette value of " + palette +
@@ -47,6 +54,10 @@ def af_colours(palette: str,
         chosen_colours_list = categorical_colours(colour_format,
                                                   number_of_colours)
 
+    if number_of_colours > 2:
+        warnings.warn("Line charts using more than two colours " +
+                      "may not meet accessibility standards.",
+                      stacklevel = 2)
     return chosen_colours_list
 
 
@@ -60,6 +71,10 @@ def categorical_colours(colour_format = "hex", number_of_colours = 6):
     ----------
     colour_format : string
         Colour format required, with accepted values of "hex" or "rgb".
+
+    number_of_colours : int
+        Number of colours required, with accepted values between 2 and 6 inclusive.
+        Returns 2 colours if no value given.
 
     Raises
     ------
