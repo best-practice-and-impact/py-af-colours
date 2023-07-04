@@ -2,7 +2,7 @@ import warnings
 
 def af_colours(palette: str,
                colour_format = "hex",
-               number_of_colours = 2):
+               number_of_colours = None):
     """ 
     Return the chosen Analysis Function colour palette in hex or rgb
     format. For the categorical palette, this can be a chosen number of
@@ -55,23 +55,23 @@ def af_colours(palette: str,
                                                   number_of_colours)
     
     if number_of_colours > len(chosen_colours_list):
-         warnings.warn("Warning: list of colours returned is shorter " + 
+         warnings.warn("Warning: list of colours returned is shorter " +
                        "than number of colours requested. Consult " +
                        "guidance to ensure correct palette chosen.",
                        stacklevel = 2)
     if number_of_colours < len(chosen_colours_list):
-         warnings.warn("Warning: list of colours returned is longer " + 
+         warnings.warn("Warning: list of colours returned is longer " +
                        "than number of colours requested. Consult " +
                        "guidance to ensure correct palette chosen.",
                        stacklevel = 2)
     if number_of_colours > 2:
-        warnings.warn("Please be aware that line charts using more " +
-                      "than two colours may not be accessible to " +
-                      "all users.")
+        warnings.warn("Line charts using more than two colours " +
+                      "may not meet accessibility standards.",
+                      stacklevel = 2)
     return chosen_colours_list
 
 
-def categorical_colours(colour_format = "hex", number_of_colours = 2):
+def categorical_colours(colour_format = "hex", number_of_colours = 6):
     """ 
     Return the Analysis Function categorical colour palette as a list
     in hex or rgb format for up to 6 colours. If number_of_colours is 
