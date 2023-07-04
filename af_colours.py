@@ -18,10 +18,15 @@ def af_colours(palette: str,
         Colour format required, with accepted values of "hex" or "rgb".
 
     number_of_colours : int
+<<<<<<< HEAD
         Number of colours required (categorical palette only). Takes
         values between 2 and 6. Returns 2 colours by default. If a
         palette other than categorical is chosen, any value passed
         is ignored.
+=======
+        Number of colours required (categorical palette only). Takes values between
+        2 and 6. Returns 2 colours by default.
+>>>>>>> e46c2dbd46508ca2a7a64970fb5194632ec03098
 
     Raises
     ------
@@ -45,6 +50,7 @@ def af_colours(palette: str,
              " is incorrect, must be hex or rgb as a string.")
     
     elif palette == "sequential":
+        number_of_colours = 3
         chosen_colours_list =sequential_colours(colour_format)
     elif palette == "focus":
         chosen_colours_list = focus_colours(colour_format)
@@ -53,7 +59,21 @@ def af_colours(palette: str,
     elif palette == "categorical":
         chosen_colours_list = categorical_colours(colour_format,
                                                   number_of_colours)
+<<<<<<< HEAD
 
+=======
+    
+    if number_of_colours > len(chosen_colours_list):
+         warnings.warn("Warning: list of colours returned is shorter " + 
+                       "than number of colours requested. Consult " +
+                       "guidance to ensure correct palette chosen.",
+                       stacklevel = 2)
+    if number_of_colours < len(chosen_colours_list):
+         warnings.warn("Warning: list of colours returned is longer " + 
+                       "than number of colours requested. Consult " +
+                       "guidance to ensure correct palette chosen.",
+                       stacklevel = 2)
+>>>>>>> e46c2dbd46508ca2a7a64970fb5194632ec03098
     if number_of_colours > 2:
         warnings.warn("Line charts using more than two colours " +
                       "may not meet accessibility standards.",
@@ -61,7 +81,7 @@ def af_colours(palette: str,
     return chosen_colours_list
 
 
-def categorical_colours(colour_format = "hex", number_of_colours = 6):
+def categorical_colours(colour_format = "hex", number_of_colours = 2):
     """ 
     Return the Analysis Function categorical colour palette as a list
     in hex or rgb format for up to 6 colours. If number_of_colours is 
