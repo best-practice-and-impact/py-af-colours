@@ -54,21 +54,6 @@ def af_colours(palette: str,
     elif palette == "categorical":
         chosen_colours_list = categorical_colours(colour_format,
                                                   number_of_colours)
-<<<<<<< HEAD
-
-=======
-    
-    if number_of_colours > len(chosen_colours_list):
-         warnings.warn("Warning: list of colours returned is shorter " + 
-                       "than number of colours requested. Consult " +
-                       "guidance to ensure correct palette chosen.",
-                       stacklevel = 2)
-    if number_of_colours < len(chosen_colours_list):
-         warnings.warn("Warning: list of colours returned is longer " + 
-                       "than number of colours requested. Consult " +
-                       "guidance to ensure correct palette chosen.",
-                       stacklevel = 2)
->>>>>>> e46c2dbd46508ca2a7a64970fb5194632ec03098
     if number_of_colours > 2:
         warnings.warn("Line charts using more than two colours " +
                       "may not meet accessibility standards.",
