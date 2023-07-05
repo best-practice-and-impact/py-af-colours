@@ -45,7 +45,6 @@ def af_colours(palette: str,
              " is incorrect, must be hex or rgb as a string.")
     
     elif palette == "sequential":
-        number_of_colours = 3
         chosen_colours_list =sequential_colours(colour_format)
     elif palette == "focus":
         chosen_colours_list = focus_colours(colour_format)
@@ -54,8 +53,9 @@ def af_colours(palette: str,
     elif palette == "categorical":
         chosen_colours_list = categorical_colours(colour_format,
                                                   number_of_colours)
-    if number_of_colours > 2:
-        warnings.warn("Line charts using more than two colours " +
+    
+    if len(chosen_colours_list) > 4:
+        warnings.warn("Line charts using more than four colours " +
                       "may not meet accessibility standards.",
                       stacklevel = 2)
     return chosen_colours_list
