@@ -84,15 +84,14 @@ af_colours("duo")
 
 <br>
 
-To return a four colour categorical palette as rgb codes:
+To return a five colour categorical palette as rgb codes:
 ```{python}
-af_colours("categorical", "rgb", 4)
+af_colours("categorical", "rgb", 5)
 ```
 
 <br>
 
-See also that a warning is given for colours lists greater than two 
-to let the user know that accessibility problems can arise if the 
+See also that a warning is given for colours lists greater than four to let the user know that accessibility problems can arise if the 
 palette is not applied correctly.
 
 
@@ -426,9 +425,8 @@ plt.show()
 This bar chart uses data based on the <a href="https://www.kaggle.com/datasets/elmoallistair/population-by-age-group-2021">population by age dataset</a>.
 Data is available with the af_colours package.
 
-Distinct from previous examples, this section features how to use the rgb list returned by af_colours.
-It is generally easier to use hex codes, but this example is included for completeness.
-The end result is the same.
+Distinct from previous examples, this section features how to use the rgb list returned by af_colours. It is generally easier to use hex codes, 
+but this example is included for completeness. The end result is the same.
 
 The spacing in this example is to account for the bar borders, which are required for accessibility purposes.
 
