@@ -17,6 +17,12 @@ table, th, td {
 import pandas as pd
 ```
 
+</br>
+
+# This guidance is in draft and remains subject to review and approval.
+
+</br>
+
 ## Table of Contents
 
 [Requirements](#requirements)
