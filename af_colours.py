@@ -55,8 +55,9 @@ def af_colours(palette: str,
                                                   number_of_colours)
     
     if len(chosen_colours_list) > 4:
-        warnings.warn("Line charts using more than four colours " +
-                      "may not meet accessibility standards.",
+        warnings.warn("It is best practice to limit graphs to four " +
+                      "categories where possible to avoid graphs " +
+                      "becoming cluttered.",
                       stacklevel = 2)
     return chosen_colours_list
 

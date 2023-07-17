@@ -90,13 +90,33 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
   <![endif]-->
 </head>
-<body class="fullcontent">
+<body>
 <div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
-
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+  <nav id="TOC" role="doc-toc">
+<h2 id="toc-title">Table of contents</h2>
+<ul>
+<li><a href="#this-guidance-is-in-draft-and-remains-subject-to-review-and-approval." class="nav-link active" data-scroll-target="#this-guidance-is-in-draft-and-remains-subject-to-review-and-approval.">This guidance is in draft and remains subject to review and approval.</a></li>
+<li><a href="#requirements" class="nav-link" data-scroll-target="#requirements">Requirements</a><a name="requirements" class="nav-link" data-scroll-target="undefined"></a></li>
+<li><a href="#installing-af_colours" class="nav-link" data-scroll-target="#installing-af_colours">Installing af_colours</a><a name="installingafcolours" class="nav-link" data-scroll-target="undefined"></a></li>
+<li><a href="#how-to-obtain-colours" class="nav-link" data-scroll-target="#how-to-obtain-colours">How to obtain colours</a><a name="howtoobtain" class="nav-link" data-scroll-target="undefined"></a></li>
+<li><a href="#basic-examples" class="nav-link" data-scroll-target="#basic-examples">Basic Examples</a></li>
+<li><a href="#application" class="nav-link" data-scroll-target="#application">Application</a><a name="application" class="nav-link" data-scroll-target="undefined"></a>
+<ul class="collapse">
+<li><a href="#duo" class="nav-link" data-scroll-target="#duo">Duo</a></li>
+<li><a href="#focus" class="nav-link" data-scroll-target="#focus">Focus</a></li>
+<li><a href="#sequential" class="nav-link" data-scroll-target="#sequential">Sequential</a></li>
+<li><a href="#categorical" class="nav-link" data-scroll-target="#categorical">Categorical</a></li>
+</ul></li>
+<li><a href="#maintenance" class="nav-link" data-scroll-target="#maintenance">Maintenance</a><a name="maintenance" class="nav-link" data-scroll-target="undefined"></a></li>
+</ul>
+</nav>
+</div>
 <main class="content" id="quarto-document-content">
 <header id="title-block-header" class="quarto-title-block default">
 
 <div class="quarto-title"><h1 class="title display-7">af_colours</h1></div></header>
+
 <style>
 table, th, td {
   border-bottom: 1px solid grey;
@@ -105,16 +125,9 @@ table, th, td {
 }
 </style>
 <p><br></p>
-<section id="this-guidance-is-in-draft-and-remains-subject-to-review-and-approval." class="level1">
-<h1>This guidance is in draft and remains subject to review and approval.</h1>
+<section id="this-guidance-is-in-draft-and-remains-subject-to-review-and-approval." class="level2">
+<h2 class="anchored" data-anchor-id="this-guidance-is-in-draft-and-remains-subject-to-review-and-approval.">This guidance is in draft and remains subject to review and approval.</h2>
 <p><br></p>
-<section id="table-of-contents" class="level2">
-<h2 class="anchored" data-anchor-id="table-of-contents">Table of Contents</h2>
-<p><a href="#requirements">Requirements</a></p>
-<p><a href="#installingafcolours">Installing af_colours</a></p>
-<p><a href="#howtoobtain">How to obtain the colours</a></p>
-<p><a href="#application">Application</a></p>
-<p><a href="#maintenance">Maintenance</a></p>
 </section>
 <section id="requirements" class="level2">
 <h2 class="anchored" data-anchor-id="requirements">Requirements<a name="requirements"></a></h2>
@@ -144,7 +157,7 @@ table, th, td {
 </div>
 <p>The af_colours function takes three arguments: palette, colour_format, and number_of_colours.</p>
 <ul>
-<li><p>palette is a required parameter, chosen by the user based on the <a href="https://analysisfunction.civilservice.gov.uk/policy-store/codes-for-accessible-colours/#section-5">Analysis Function colour guidance</a>. It takes one of four possible string values corresponding to the options:</p>
+<li><p>palette is a required parameter, chosen by the user based on the <a href="https://analysisfunction.civilservice.gov.uk/policy-store/codes-for-accessible-colours/">Analysis Function colour guidance</a>. It takes one of four possible string values corresponding to the options:</p>
 <ul>
 <li>“duo”<br>
 </li>
@@ -177,7 +190,7 @@ table, th, td {
 <div class="cell" data-execution_count="4">
 <div class="sourceCode" id="cb5"><pre class="sourceCode python cell-code code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>af_colours(<span class="st">"categorical"</span>, <span class="st">"rgb"</span>, <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-stderr">
-<pre><code>UserWarning: Line charts using more than four colours may not meet accessibility standards.
+<pre><code>UserWarning: It is best practice to limit graphs to four categories where possible to avoid graphs becoming cluttered.
   af_colours("categorical", "rgb", 5)</code></pre>
 </div>
 <div class="cell-output-display" data-execution_count="13">
@@ -185,7 +198,7 @@ table, th, td {
 </div>
 </div>
 <p><br></p>
-<p>See also that a warning is given for colours lists greater than four to let the user know that accessibility problems can arise if the palette is not applied correctly.</p>
+<p>See also that a warning is given for colours lists greater than four to let the user know that for best practice, it is preferable to use a limit of four categories.</p>
 </section>
 <section id="application" class="level2">
 <h2 class="anchored" data-anchor-id="application">Application<a name="application"></a></h2>
@@ -481,14 +494,15 @@ Light blue
 <span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a>        width <span class="op">=</span> <span class="fl">0.19</span>, zorder <span class="op">=</span> <span class="dv">2</span>, edgecolor <span class="op">=</span> sequential[<span class="dv">0</span>],</span>
 <span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a>        label <span class="op">=</span> <span class="st">"65+"</span>, color <span class="op">=</span> sequential[<span class="dv">2</span>])</span>
 <span id="cb10-26"><a href="#cb10-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-27"><a href="#cb10-27" aria-hidden="true" tabindex="-1"></a>plt.grid(visible <span class="op">=</span> <span class="va">True</span>, which <span class="op">=</span> <span class="st">"both"</span>, axis <span class="op">=</span> <span class="st">"y"</span>, color <span class="op">=</span> <span class="st">"#BEBEBE"</span>)</span>
-<span id="cb10-28"><a href="#cb10-28" aria-hidden="true" tabindex="-1"></a>plt.xticks(x_spacing, top_five_age[<span class="st">"Country"</span>].values)</span>
-<span id="cb10-29"><a href="#cb10-29" aria-hidden="true" tabindex="-1"></a>plt.tick_params(color <span class="op">=</span> <span class="st">"white"</span>)</span>
-<span id="cb10-30"><a href="#cb10-30" aria-hidden="true" tabindex="-1"></a>ax.<span class="bu">set</span>(xlabel <span class="op">=</span> <span class="st">"Country"</span>, ylabel <span class="op">=</span> <span class="st">"Population (Billion)"</span>)</span>
-<span id="cb10-31"><a href="#cb10-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-32"><a href="#cb10-32" aria-hidden="true" tabindex="-1"></a>plt.legend(bbox_to_anchor <span class="op">=</span> (<span class="fl">0.025</span>, <span class="fl">0.62</span>, <span class="fl">0.5</span>, <span class="fl">0.5</span>), ncol <span class="op">=</span> <span class="dv">4</span>,</span>
-<span id="cb10-33"><a href="#cb10-33" aria-hidden="true" tabindex="-1"></a>            handlelength <span class="op">=</span> <span class="fl">0.7</span>, frameon <span class="op">=</span> <span class="va">False</span>)</span>
-<span id="cb10-34"><a href="#cb10-34" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb10-27"><a href="#cb10-27" aria-hidden="true" tabindex="-1"></a>plt.box(<span class="va">False</span>)</span>
+<span id="cb10-28"><a href="#cb10-28" aria-hidden="true" tabindex="-1"></a>plt.grid(visible <span class="op">=</span> <span class="va">True</span>, which <span class="op">=</span> <span class="st">"both"</span>, axis <span class="op">=</span> <span class="st">"y"</span>, color <span class="op">=</span> <span class="st">"#BEBEBE"</span>)</span>
+<span id="cb10-29"><a href="#cb10-29" aria-hidden="true" tabindex="-1"></a>plt.xticks(x_spacing, top_five_age[<span class="st">"Country"</span>].values)</span>
+<span id="cb10-30"><a href="#cb10-30" aria-hidden="true" tabindex="-1"></a>plt.tick_params(color <span class="op">=</span> <span class="st">"white"</span>)</span>
+<span id="cb10-31"><a href="#cb10-31" aria-hidden="true" tabindex="-1"></a>ax.<span class="bu">set</span>(xlabel <span class="op">=</span> <span class="st">"Country"</span>, ylabel <span class="op">=</span> <span class="st">"Population (Billion)"</span>)</span>
+<span id="cb10-32"><a href="#cb10-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-33"><a href="#cb10-33" aria-hidden="true" tabindex="-1"></a>plt.legend(bbox_to_anchor <span class="op">=</span> (<span class="fl">0.025</span>, <span class="fl">0.62</span>, <span class="fl">0.5</span>, <span class="fl">0.5</span>), ncol <span class="op">=</span> <span class="dv">4</span>,</span>
+<span id="cb10-34"><a href="#cb10-34" aria-hidden="true" tabindex="-1"></a>            handlelength <span class="op">=</span> <span class="fl">0.7</span>, frameon <span class="op">=</span> <span class="va">False</span>)</span>
+<span id="cb10-35"><a href="#cb10-35" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><br></p>
 </section>
@@ -595,7 +609,7 @@ Light purple
 <h4 class="anchored" data-anchor-id="figure-4-bar-chart-using-the-categorical-colour-palette">Figure 4: Bar chart using the Categorical colour palette</h4>
 <div class="cell" data-execution_count="11">
 <div class="cell-output-stderr">
-<pre><code>UserWarning: Line charts using more than four colours may not meet accessibility standards.
+<pre><code>UserWarning: It is best practice to limit graphs to four categories where possible to avoid graphs becoming cluttered.
   colours = af_colours("categorical", "hex", 6)</code></pre>
 </div>
 <div class="cell-output-display">
@@ -630,24 +644,25 @@ Light purple
 <span id="cb12-25"><a href="#cb12-25" aria-hidden="true" tabindex="-1"></a>            edgecolor <span class="op">=</span> <span class="st">"white"</span>,</span>
 <span id="cb12-26"><a href="#cb12-26" aria-hidden="true" tabindex="-1"></a>            palette <span class="op">=</span> categorical)</span>
 <span id="cb12-27"><a href="#cb12-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-28"><a href="#cb12-28" aria-hidden="true" tabindex="-1"></a>plt.yscale(<span class="st">"log"</span>)</span>
-<span id="cb12-29"><a href="#cb12-29" aria-hidden="true" tabindex="-1"></a>plt.grid(visible <span class="op">=</span> <span class="va">True</span>, which <span class="op">=</span> <span class="st">"both"</span>, axis <span class="op">=</span> <span class="st">"y"</span>, color <span class="op">=</span> <span class="st">"#BEBEBE"</span>)</span>
-<span id="cb12-30"><a href="#cb12-30" aria-hidden="true" tabindex="-1"></a>plt.legend(frameon <span class="op">=</span> <span class="va">False</span>, loc <span class="op">=</span> <span class="st">"upper left"</span>, ncol <span class="op">=</span> <span class="dv">3</span>,</span>
-<span id="cb12-31"><a href="#cb12-31" aria-hidden="true" tabindex="-1"></a>            handlelength <span class="op">=</span> <span class="fl">0.7</span>, bbox_to_anchor <span class="op">=</span> (<span class="dv">0</span>, <span class="fl">0.65</span>, <span class="fl">0.5</span>, <span class="fl">0.5</span>))</span>
-<span id="cb12-32"><a href="#cb12-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-33"><a href="#cb12-33" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb12-28"><a href="#cb12-28" aria-hidden="true" tabindex="-1"></a>plt.box(<span class="va">False</span>)</span>
+<span id="cb12-29"><a href="#cb12-29" aria-hidden="true" tabindex="-1"></a>plt.yscale(<span class="st">"log"</span>)</span>
+<span id="cb12-30"><a href="#cb12-30" aria-hidden="true" tabindex="-1"></a>plt.grid(visible <span class="op">=</span> <span class="va">True</span>, which <span class="op">=</span> <span class="st">"both"</span>, axis <span class="op">=</span> <span class="st">"y"</span>, color <span class="op">=</span> <span class="st">"#BEBEBE"</span>)</span>
+<span id="cb12-31"><a href="#cb12-31" aria-hidden="true" tabindex="-1"></a>plt.legend(frameon <span class="op">=</span> <span class="va">False</span>, loc <span class="op">=</span> <span class="st">"upper left"</span>, ncol <span class="op">=</span> <span class="dv">3</span>,</span>
+<span id="cb12-32"><a href="#cb12-32" aria-hidden="true" tabindex="-1"></a>            handlelength <span class="op">=</span> <span class="fl">0.7</span>, bbox_to_anchor <span class="op">=</span> (<span class="dv">0</span>, <span class="fl">0.65</span>, <span class="fl">0.5</span>, <span class="fl">0.5</span>))</span>
+<span id="cb12-33"><a href="#cb12-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-34"><a href="#cb12-34" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><br></p>
 </section>
-<section id="figure-5-pie-chart-using-the-sequential-colour-palette" class="level4">
-<h4 class="anchored" data-anchor-id="figure-5-pie-chart-using-the-sequential-colour-palette">Figure 5: Pie chart using the Sequential colour palette</h4>
+<section id="figure-5-pie-chart-using-the-categorical-colour-palette" class="level4">
+<h4 class="anchored" data-anchor-id="figure-5-pie-chart-using-the-categorical-colour-palette">Figure 5: Pie chart using the Categorical colour palette</h4>
 <div class="cell" data-execution_count="13">
 <div class="cell-output-stderr">
-<pre><code>UserWarning: Line charts using more than four colours may not meet accessibility standards.
+<pre><code>UserWarning: It is best practice to limit graphs to four categories where possible to avoid graphs becoming cluttered.
   colours = af_colours("categorical", "hex", 6)</code></pre>
 </div>
 <div class="cell-output-display">
-<p><img src="index_files\figure-html/cell-14-output-2.png" width="545" height="402"></p>
+<p><img src="index_files\figure-html/cell-14-output-2.png" width="544" height="402"></p>
 </div>
 </div>
 <div class="cell" data-execution_count="14">
@@ -693,7 +708,6 @@ Light purple
 <section id="maintenance" class="level2">
 <h2 class="anchored" data-anchor-id="maintenance">Maintenance<a name="maintenance"></a></h2>
 <p>The package includes a function hex_to_rgb for generating the rgb color codes. In the event the Analysis Function colour palettes change, only the hex codes need be updated.</p>
-</section>
 </section>
 </main>
 <!-- /main column -->

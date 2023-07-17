@@ -1,6 +1,8 @@
 ---
 title: "af_colours"
-format: html
+format:
+  html:
+    toc: true
 ---
 
 <style>
@@ -19,21 +21,9 @@ import pandas as pd
 
 </br>
 
-# This guidance is in draft and remains subject to review and approval.
+## This guidance is in draft and remains subject to review and approval.
 
 </br>
-
-## Table of Contents
-
-[Requirements](#requirements)
-
-[Installing af_colours](#installingafcolours)
-
-[How to obtain the colours](#howtoobtain)
-
-[Application](#application)
-
-[Maintenance](#maintenance)
 
 ## Requirements<a name="requirements"></a>
 To run af_colours, your system requires the following installations:
@@ -64,7 +54,7 @@ The af_colours function takes three arguments: palette, colour_format,
 and number_of_colours.
 
 - palette is a required parameter, chosen by the user based on the 
-[Analysis Function colour guidance](https://analysisfunction.civilservice.gov.uk/policy-store/codes-for-accessible-colours/#section-5).
+[Analysis Function colour guidance](https://analysisfunction.civilservice.gov.uk/policy-store/codes-for-accessible-colours/).
 It takes one of four possible string values corresponding to the options:
 
     - "duo"  
@@ -97,8 +87,8 @@ af_colours("categorical", "rgb", 5)
 
 <br>
 
-See also that a warning is given for colours lists greater than four to let the user know that accessibility problems can arise if the 
-palette is not applied correctly.
+See also that a warning is given for colours lists greater than four to let the user know that for best practice, it is
+preferable to use a limit of four categories.
 
 
 ## Application<a name="application"></a>
@@ -415,7 +405,8 @@ plt.bar(x_spacing + 0.25, top_five_age["65+"].values,
         width = 0.19, zorder = 2, edgecolor = sequential[0],
         label = "65+", color = sequential[2])
 
-plt.grid(visible = True, which = "both", axis = "y", color = "#BEBEBE")
+plt.box(False)
+plt.grid(visible = True, which = "both", axis = "y", color = "#BEBEBE") 
 plt.xticks(x_spacing, top_five_age["Country"].values)
 plt.tick_params(color = "white")
 ax.set(xlabel = "Country", ylabel = "Population (Billion)")
@@ -466,6 +457,7 @@ plt.bar(x_spacing + 0.25, top_five_age["65+"].values,
         width = 0.19, zorder = 2, edgecolor = sequential[0],
         label = "65+", color = sequential[2])
 
+plt.box(False)
 plt.grid(visible = True, which = "both", axis = "y", color = "#BEBEBE")
 plt.xticks(x_spacing, top_five_age["Country"].values)
 plt.tick_params(color = "white")
@@ -564,6 +556,7 @@ sns.barplot(x = "Year", y = "Population",
             edgecolor = "white",
             palette = categorical)
 
+plt.box(False)
 plt.yscale("log")
 plt.grid(visible = True, which = "both", axis = "y", color = "#BEBEBE")
 plt.legend(frameon = False, loc = "upper left", ncol = 3,
@@ -603,6 +596,7 @@ sns.barplot(x = "Year", y = "Population",
             edgecolor = "white",
             palette = categorical)
 
+plt.box(False)
 plt.yscale("log")
 plt.grid(visible = True, which = "both", axis = "y", color = "#BEBEBE")
 plt.legend(frameon = False, loc = "upper left", ncol = 3,
@@ -615,7 +609,7 @@ plt.show()
 
 <br>
 
-#### Figure 5: Pie chart using the Sequential colour palette
+#### Figure 5: Pie chart using the Categorical colour palette
 
 ```{python}
 #| echo: false
