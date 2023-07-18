@@ -140,30 +140,31 @@ sns.lineplot(data = (top_two_data.transpose()),
                      legend = False)
 
 ax.set_xlabel("Year")
-ax.set_ylabel("Population (Billion)", rotation = 0)
-ax.yaxis.set_label_coords(0, 1)
+ax.set_ylabel("Population (Billions)", rotation = 0)
+ax.yaxis.set_label_coords(-0.15, 1.05)
 
 ax.grid(visible = True, which = "both", axis = "y", color = "#BEBEBE")
 ax.set_axisbelow(True)
 ax.set_frame_on(False)
-ax.tick_params(color = "#BEBEBE")
+ax.tick_params(color = "#D6D6D6")
 
 x_label_coord = len(top_two_data.columns) - 1
-y_label_coord1 = top_two_data.values[0][-1] + 0.01
+y_label_coord1 = top_two_data.values[0][-1] + 0.03
 y_label_coord2 = top_two_data.values[1][-1] - 0.05
 
-ax.annotate("China", xy = (x_label_coord, y_label_coord1))
-ax.annotate("India", xy = (x_label_coord, y_label_coord2))
+ax.annotate(" China", xy = (x_label_coord, y_label_coord1))
+ax.annotate(" India", xy = (x_label_coord, y_label_coord2))
 
 ax.set_xlim(left = 0, right = len(top_two_data.columns) - 1)
+ax.set_ylim(bottom = -0.01, top = 1.6)
 
+plt.tight_layout()
 plt.show()
 
 ```
 
-<br>
-
-This line chart uses data based on the <a href="https://www.kaggle.com/datasets/iamsouravbanerjee/world-population-dataset?resource=download">world population dataset</a>.
+This line chart has two lines, one dark blue and one orange. This line chart uses data based on
+the <a href="https://www.kaggle.com/datasets/iamsouravbanerjee/world-population-dataset?resource=download">world population dataset</a>.
 Data is available with the af_colours package.
 
 ```{python}
@@ -187,23 +188,25 @@ sns.lineplot(data = (top_two_data.transpose()),
                      legend = False)
 
 ax.set_xlabel("Year")
-ax.set_ylabel("Population (Billion)", rotation = 0)
-ax.yaxis.set_label_coords(0, 1)
+ax.set_ylabel("Population (Billions)", rotation = 0)
+ax.yaxis.set_label_coords(-0.15, 1.05)
 
 ax.grid(visible = True, which = "both", axis = "y", color = "#BEBEBE")
 ax.set_axisbelow(True)
 ax.set_frame_on(False)
-ax.tick_params(color = "#BEBEBE")
+ax.tick_params(color = "#D6D6D6")
 
 x_label_coord = len(top_two_data.columns) - 1
-y_label_coord1 = top_two_data.values[0][-1] + 0.01
+y_label_coord1 = top_two_data.values[0][-1] + 0.03
 y_label_coord2 = top_two_data.values[1][-1] - 0.05
 
-ax.annotate("China", xy = (x_label_coord, y_label_coord1))
-ax.annotate("India", xy = (x_label_coord, y_label_coord2))
+ax.annotate(" China", xy = (x_label_coord, y_label_coord1))
+ax.annotate(" India", xy = (x_label_coord, y_label_coord2))
 
 ax.set_xlim(left = 0, right = len(top_two_data.columns) - 1)
+ax.set_ylim(bottom = -0.01, top = 1.6)
 
+plt.tight_layout()
 plt.show()
 
 ```
@@ -266,11 +269,14 @@ sns.lineplot(data = top_five_data.transpose(),
                     dashes = False,
                     legend = False)
 
-ax.set(xlabel = "Year", ylabel = "Population (Billion)")
-ax.grid(visible = True, which = "both", axis = "y", color = "#BEBEBE")
+ax.set_xlabel("Year")
+ax.set_ylabel("Population (Billions)", rotation = 0)
+ax.yaxis.set_label_coords(-0.15, 1.05)
+
+ax.grid(visible = True, which = "both", axis = "y", color = "#D6D6D6")
 ax.set_axisbelow(True)
 ax.set_frame_on(False)
-ax.tick_params(color = "#BEBEBE")
+ax.tick_params(color = "#D6D6D6")
 
 x_coord = len(top_five.columns) - 2
 y_coord = []
@@ -278,22 +284,22 @@ for n in np.arange(top_five_data.shape[0]):
     y = top_five_data.values[n][-1]
     y_coord.append(y)
 
-ax.annotate("China", xy = (x_coord, y_coord[0]))
-ax.annotate("India", xy = (x_coord, y_coord[1] - 0.04))
-ax.annotate("United States", xy = (x_coord, y_coord[2] + 0.01))
-ax.annotate("Indonesia", xy = (x_coord, y_coord[3]))
-ax.annotate("Pakistan", xy = (x_coord, y_coord[4] - 0.02))
+ax.annotate(" China", xy = (x_coord, y_coord[0]))
+ax.annotate(" India", xy = (x_coord, y_coord[1] - 0.04))
+ax.annotate(" United States", xy = (x_coord, y_coord[2] + 0.01))
+ax.annotate(" Indonesia", xy = (x_coord, y_coord[3]))
+ax.annotate(" Pakistan", xy = (x_coord, y_coord[4] - 0.02))
 
 ax.set_xlim(left = 0, right = (len(top_five.columns) - 2))
+ax.set_ylim(bottom = -0.01, top = 1.6)
 
+plt.tight_layout()
 plt.show()
 
 ```
 
-<br>
-
 This line chart uses data based on the <a href="https://www.kaggle.com/datasets/iamsouravbanerjee/world-population-dataset?resource=download">world population dataset</a>. 
-Data is available with the af_colours package.
+All lines are light grey, except the line showing the time series for India. Data is available with the af_colours package.
 
 ```{python}
 #| eval: false
@@ -323,11 +329,14 @@ sns.lineplot(data = top_five_data.transpose(),
                     dashes = False,
                     legend = False)
 
-ax.set(xlabel = "Year", ylabel = "Population (Billion)")
-ax.grid(visible = True, which = "both", axis = "y", color = "#BEBEBE")
+ax.set_xlabel("Year")
+ax.set_ylabel("Population (Billions)", rotation = 0)
+ax.yaxis.set_label_coords(-0.15, 1.05)
+
+ax.grid(visible = True, which = "both", axis = "y", color = "#D6D6D6")
 ax.set_axisbelow(True)
 ax.set_frame_on(False)
-ax.tick_params(color = "#BEBEBE")
+ax.tick_params(color = "#D6D6D6")
 
 x_coord = len(top_five.columns) - 2
 y_coord = []
@@ -335,14 +344,16 @@ for n in np.arange(top_five_data.shape[0]):
     y = top_five_data.values[n][-1]
     y_coord.append(y)
 
-ax.annotate("China", xy = (x_coord, y_coord[0]))
-ax.annotate("India", xy = (x_coord, y_coord[1] - 0.04))
-ax.annotate("United States", xy = (x_coord, y_coord[2] + 0.01))
-ax.annotate("Indonesia", xy = (x_coord, y_coord[3]))
-ax.annotate("Pakistan", xy = (x_coord, y_coord[4] - 0.02))
+ax.annotate(" China", xy = (x_coord, y_coord[0]))
+ax.annotate(" India", xy = (x_coord, y_coord[1] - 0.04))
+ax.annotate(" United States", xy = (x_coord, y_coord[2] + 0.01))
+ax.annotate(" Indonesia", xy = (x_coord, y_coord[3]))
+ax.annotate(" Pakistan", xy = (x_coord, y_coord[4] - 0.02))
 
 ax.set_xlim(left = 0, right = (len(top_five.columns) - 2))
+ax.set_ylim(bottom = -0.01, top = 1.6)
 
+plt.tight_layout()
 plt.show()
 
 ```
