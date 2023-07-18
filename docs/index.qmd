@@ -139,7 +139,10 @@ sns.lineplot(data = (top_two_data.transpose()),
                      dashes = False,
                      legend = False)
 
-ax.set(xlabel = "Year", ylabel = "Population (Billion)")
+ax.set_xlabel("Year")
+ax.set_ylabel("Population (Billion)", rotation = 0)
+ax.yaxis.set_label_coords(0, 1)
+
 ax.grid(visible = True, which = "both", axis = "y", color = "#BEBEBE")
 ax.set_axisbelow(True)
 ax.set_frame_on(False)
@@ -183,7 +186,10 @@ sns.lineplot(data = (top_two_data.transpose()),
                      dashes = False,
                      legend = False)
 
-ax.set(xlabel = "Year", ylabel = "Population (Billion)")
+ax.set_xlabel("Year")
+ax.set_ylabel("Population (Billion)", rotation = 0)
+ax.yaxis.set_label_coords(0, 1)
+
 ax.grid(visible = True, which = "both", axis = "y", color = "#BEBEBE")
 ax.set_axisbelow(True)
 ax.set_frame_on(False)
@@ -246,10 +252,11 @@ top_five = world_population[0:5]
 top_five_data = top_five.set_index("Country/Territory")
 
 focus_country = "India"
+focus_colours = af_colours("focus")
 focus_index = top_five.index[top_five["Country/Territory"] 
                                   == focus_country].tolist()
-focus_palette = int(top_five_data.shape[0]) * [af_colours("focus")[1]]
-focus_palette[focus_index[0]] = af_colours("focus")[0]
+focus_palette = int(top_five_data.shape[0]) * [focus_colours[1]]
+focus_palette[focus_index[0]] = focus_colours[0]
 focus = sns.set_palette(sns.color_palette(focus_palette))
 
 fig, ax = plt.subplots()
@@ -302,10 +309,11 @@ top_five = world_population[0:5]
 top_five_data = top_five.set_index("Country/Territory")
 
 focus_country = "India"
+focus_colours = af_colours("focus")
 focus_index = top_five.index[top_five["Country/Territory"] 
                                   == focus_country].tolist()
-focus_palette = int(top_five_data.shape[0]) * [af_colours("focus")[1]]
-focus_palette[focus_index[0]] = af_colours("focus")[0]
+focus_palette = int(top_five_data.shape[0]) * [focus_colours[1]]
+focus_palette[focus_index[0]] = focus_colours[0]
 focus = sns.set_palette(sns.color_palette(focus_palette))
 
 fig, ax = plt.subplots()
