@@ -70,7 +70,7 @@ It takes one of four possible string values corresponding to the options:
 
 af_colours returns hex codes as a list of strings, and rgb codes as a list of tuples.
 
-## Basic Examples
+## Basic examples
 
 For example, to return the duo colour palette hex codes:
 ```{python}
@@ -130,7 +130,7 @@ from af_colours import af_colours
 world_population = pd.read_csv("data\world_population_in_billions.csv")
 top_two_data = world_population.set_index("Country/Territory")[0:2]
 
-duo = sns.set_palette(sns.color_palette(af_colours("duo")))
+duo = sns.color_palette(af_colours("duo"))
 
 fig, ax = plt.subplots()
 
@@ -140,7 +140,7 @@ sns.lineplot(data = (top_two_data.transpose()),
                      legend = False)
 
 ax.set_xlabel("Year")
-ax.set_ylabel("Population (Billions)", rotation = 0)
+ax.set_ylabel("Population (Billion)", rotation = 0)
 ax.yaxis.set_label_coords(-0.15, 1.05)
 
 ax.grid(visible = True, which = "both", axis = "y", color = "#BEBEBE")
@@ -178,7 +178,7 @@ from af_colours import af_colours
 world_population = pd.read_csv("data\world_population_in_billions.csv")
 top_two_data = world_population.set_index("Country/Territory")[0:2]
 
-duo = sns.set_palette(sns.color_palette(af_colours("duo")))
+duo = sns.color_palette(af_colours("duo"))
 
 fig, ax = plt.subplots()
 
@@ -188,7 +188,7 @@ sns.lineplot(data = (top_two_data.transpose()),
                      legend = False)
 
 ax.set_xlabel("Year")
-ax.set_ylabel("Population (Billions)", rotation = 0)
+ax.set_ylabel("Population (Billion)", rotation = 0)
 ax.yaxis.set_label_coords(-0.15, 1.05)
 
 ax.grid(visible = True, which = "both", axis = "y", color = "#BEBEBE")
@@ -260,7 +260,7 @@ focus_index = top_five.index[top_five["Country/Territory"]
                                   == focus_country].tolist()
 focus_palette = int(top_five_data.shape[0]) * [focus_colours[1]]
 focus_palette[focus_index[0]] = focus_colours[0]
-focus = sns.set_palette(sns.color_palette(focus_palette))
+focus = sns.color_palette(focus_palette)
 
 fig, ax = plt.subplots()
 
@@ -270,7 +270,7 @@ sns.lineplot(data = top_five_data.transpose(),
                     legend = False)
 
 ax.set_xlabel("Year")
-ax.set_ylabel("Population (Billions)", rotation = 0)
+ax.set_ylabel("Population (Billion)", rotation = 0)
 ax.yaxis.set_label_coords(-0.15, 1.05)
 
 ax.grid(visible = True, which = "both", axis = "y", color = "#D6D6D6")
@@ -320,7 +320,7 @@ focus_index = top_five.index[top_five["Country/Territory"]
                                   == focus_country].tolist()
 focus_palette = int(top_five_data.shape[0]) * [focus_colours[1]]
 focus_palette[focus_index[0]] = focus_colours[0]
-focus = sns.set_palette(sns.color_palette(focus_palette))
+focus = sns.color_palette(focus_palette)
 
 fig, ax = plt.subplots()
 
@@ -330,7 +330,7 @@ sns.lineplot(data = top_five_data.transpose(),
                     legend = False)
 
 ax.set_xlabel("Year")
-ax.set_ylabel("Population (Billions)", rotation = 0)
+ax.set_ylabel("Population (Billion)", rotation = 0)
 ax.yaxis.set_label_coords(-0.15, 1.05)
 
 ax.grid(visible = True, which = "both", axis = "y", color = "#D6D6D6")
@@ -405,7 +405,7 @@ from af_colours import af_colours
 
 world_population_by_age = pd.read_csv("data\population_by_age.csv")
 top_five_age = world_population_by_age[0:5]
-top_five_age_data = top_five_age.set_index(top_five_age["Country"])
+top_five_age_data = top_five_age.set_index("Country")
 countries = top_five_age["Country"].values
 
 fig, ax = plt.subplots()
@@ -425,10 +425,13 @@ plt.bar(x_spacing + 0.25, top_five_age["65+"].values,
         label = "65+", color = sequential[2])
 
 plt.box(False)
-plt.grid(visible = True, which = "both", axis = "y", color = "#BEBEBE") 
+plt.grid(visible = True, which = "both", axis = "y", color = "#D6D6D6") 
 plt.xticks(x_spacing, top_five_age["Country"].values)
 plt.tick_params(color = "white")
-ax.set(xlabel = "Country", ylabel = "Population (Billion)")
+ax.set_xlabel("Country")
+ax.set_ylabel("Population (Billion)", rotation = 0)
+ax.yaxis.set_label_coords(-0.15, 1.05)
+ax.set_ylim(top = 0.9)
 
 plt.legend(bbox_to_anchor = (0.025, 0.62, 0.5, 0.5), ncol = 4,
             handlelength = 0.7, frameon = False)
@@ -436,16 +439,13 @@ plt.show()
 
 ```
 
-<br>
-
-This bar chart uses data based on the <a href="https://www.kaggle.com/datasets/elmoallistair/population-by-age-group-2021">population by age dataset</a>.
-Data is available with the af_colours package.
+This clustered bar chart uses data based on the <a href="https://www.kaggle.com/datasets/elmoallistair/population-by-age-group-2021">population by age dataset</a> and 
+shows data for five countries. The legend is presented in the same order as the bars in the clusters. Data is available with the af_colours package.
 
 Distinct from previous examples, this section features how to use the rgb list returned by af_colours. It is generally easier to use hex codes, 
 but this example is included for completeness. The end result is the same.
 
 The spacing in this example is to account for the bar borders, which are required for accessibility purposes.
-
 
 ```{python}
 #| eval: false
@@ -471,16 +471,19 @@ plt.bar(x_spacing - 0.25, top_five_age["Under 25"].values,
         label = "0 to 25", color = sequential[0])
 plt.bar(x_spacing, top_five_age["25-64 years"].values,
         width = 0.19, zorder = 2, edgecolor = sequential[0],
-        label = "25 to 64", color = sequential[1])
+        label = "25 to 64", color=sequential[1])
 plt.bar(x_spacing + 0.25, top_five_age["65+"].values,
         width = 0.19, zorder = 2, edgecolor = sequential[0],
         label = "65+", color = sequential[2])
 
 plt.box(False)
-plt.grid(visible = True, which = "both", axis = "y", color = "#BEBEBE")
+plt.grid(visible = True, which = "both", axis = "y", color = "#D6D6D6") 
 plt.xticks(x_spacing, top_five_age["Country"].values)
 plt.tick_params(color = "white")
-ax.set(xlabel = "Country", ylabel = "Population (Billion)")
+ax.set_xlabel("Country")
+ax.set_ylabel("Population (Billion)", rotation = 0)
+ax.yaxis.set_label_coords(-0.15, 1.05)
+ax.set_ylim(top = 0.9)
 
 plt.legend(bbox_to_anchor = (0.025, 0.62, 0.5, 0.5), ncol = 4,
             handlelength = 0.7, frameon = False)
@@ -553,33 +556,37 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 from af_colours import af_colours
 
-world_population = pd.read_csv("data\world_population_continents.csv")
-world_population = world_population.drop("Country/Territory", axis = 1)
-continents_population = world_population.groupby("Continent").sum()
+world_population = pd.read_csv("data\world_population_in_billions.csv")
+top_four = world_population[0:4]
+top_four_data = top_four.set_index("Country/Territory")
 
-years_of_interest  = continents_population.columns.tolist()[:4]
-population_by_continent = pd.melt(continents_population.reset_index(),
-                                   id_vars = "Continent",
+years_of_interest  = top_four_data.columns.tolist()[-4:]
+
+categorical = sns.color_palette(af_colours("categorical", "hex", 4))
+
+population_over_time = pd.melt(top_four_data.reset_index(),
+                                   id_vars = "Country/Territory",
                                    value_vars = years_of_interest,
                                    var_name = "Year",
                                    value_name = "Population")
 
-colours = af_colours("categorical", "hex", 6)
-categorical = sns.set_palette(sns.color_palette(colours))
-
 fig, ax = plt.subplots()
 
 sns.barplot(x = "Year", y = "Population",
-            data = population_by_continent,
-            zorder = 2, hue = "Continent",
+            data = population_over_time,
+            zorder = 2, hue = "Country/Territory",
             edgecolor = "white",
             palette = categorical)
 
 plt.box(False)
-plt.yscale("log")
-plt.grid(visible = True, which = "both", axis = "y", color = "#BEBEBE")
-plt.legend(frameon = False, loc = "upper left", ncol = 3,
-            handlelength = 0.7, bbox_to_anchor = (0, 0.65, 0.5, 0.5))
+
+ax.set_ylabel("Population (Billion)", rotation = 0)
+ax.yaxis.set_label_coords(-0.15, 1.05)
+plt.grid(visible = True, which = "both", axis = "y", color = "#D6D6D6")
+ax.tick_params(color = "#D6D6D6")
+ax.set_ylim(bottom = -0.01, top = 1.6)
+plt.legend(frameon = False, loc = "upper left", ncol = 4,
+            handlelength = 0.7, bbox_to_anchor = (0, 0.62, 0.5, 0.5))
 
 plt.show()
 
@@ -593,33 +600,37 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 from af_colours import af_colours
 
-world_population = pd.read_csv("data\world_population_continents.csv")
-world_population = world_population.drop("Country/Territory", axis = 1)
-continents_population = world_population.groupby("Continent").sum()
+world_population = pd.read_csv("data\world_population_in_billions.csv")
+top_four = world_population[0:4]
+top_four_data = top_four.set_index("Country/Territory")
 
-years_of_interest  = continents_population.columns.tolist()[:4]
-population_by_continent = pd.melt(continents_population.reset_index(),
-                                   id_vars = "Continent",
+years_of_interest  = top_four_data.columns.tolist()[-4:]
+
+categorical = sns.color_palette(af_colours("categorical", "hex", 4))
+
+population_over_time = pd.melt(top_four_data.reset_index(),
+                                   id_vars = "Country/Territory",
                                    value_vars = years_of_interest,
                                    var_name = "Year",
                                    value_name = "Population")
 
-colours = af_colours("categorical", "hex", 6)
-categorical = sns.set_palette(sns.color_palette(colours))
-
 fig, ax = plt.subplots()
 
 sns.barplot(x = "Year", y = "Population",
-            data = population_by_continent,
-            zorder = 2, hue = "Continent",
+            data = population_over_time,
+            zorder = 2, hue = "Country/Territory",
             edgecolor = "white",
             palette = categorical)
 
 plt.box(False)
-plt.yscale("log")
-plt.grid(visible = True, which = "both", axis = "y", color = "#BEBEBE")
-plt.legend(frameon = False, loc = "upper left", ncol = 3,
-            handlelength = 0.7, bbox_to_anchor = (0, 0.65, 0.5, 0.5))
+
+ax.set_ylabel("Population (Billion)", rotation = 0)
+ax.yaxis.set_label_coords(-0.15, 1.05)
+plt.grid(visible = True, which = "both", axis = "y", color = "#D6D6D6")
+ax.tick_params(color = "#D6D6D6")
+ax.set_ylim(bottom = -0.01, top = 1.6)
+plt.legend(frameon = False, loc = "upper left", ncol = 4,
+            handlelength = 0.7, bbox_to_anchor = (0, 0.62, 0.5, 0.5))
 
 plt.show()
 
@@ -639,32 +650,28 @@ import numpy as np
 import matplotlib.pyplot as plt
 from af_colours import af_colours
 
-world_population = pd.read_csv("data\world_population_continents.csv")
-world_population = world_population.drop("Country/Territory", axis = 1)
-continents_population = world_population.groupby("Continent").sum()
-most_recent = continents_population.iloc[:,-1:]
-data = most_recent.reset_index()
-year = str(data.columns[-1])
+uk_population = pd.read_csv("data/uk_population_by_country.csv")
+population_data = uk_population.drop("Country", axis = 1).reset_index()
 
 colours = af_colours("categorical", "hex", 6)
 categorical = sns.set_palette(sns.color_palette(colours))
 
 percentage_labels = []
-for n in np.arange(most_recent.shape[0]):
-    percentage = 100 * ((most_recent.iloc[n].values.item())
-                    /(most_recent.values.sum().item()))
+for n in np.arange(population_data.shape[0]):
+    percentage = 100 * ((population_data.iloc[n].values.item())
+                    /(population_data.values.sum().item()))
     value = round(percentage, 1)
-    country = str(data["Continent"].iloc[n])
+    country = str(data["Country"].iloc[n])
     percentage_labels.append((country + " " + str(value) + "%"))
 
-ax = most_recent.plot.pie(x = "Continent", y = "2022",
+ax = most_recent.plot.pie(x = "Country", y = "Population Estimate",
                           labels = percentage_labels,
                           legend = False,
                           wedgeprops = {"edgecolor": "white",
                                         "linewidth": 2,
                                         "antialiased": True})
 ax.set_ylabel(None)
-ax.set_title("Percentage Population of Continents in " + year)
+ax.set_title("Percentage Population of UK Countries in 2022")
 
 plt.show()
 
