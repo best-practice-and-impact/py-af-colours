@@ -650,32 +650,43 @@ import numpy as np
 import matplotlib.pyplot as plt
 from af_colours import af_colours
 
-uk_population = pd.read_csv("data/uk_population_by_country.csv")
-population_data = uk_population.drop("Country", axis = 1).reset_index()
+world_population = pd.read_csv("data\world_population_in_billions.csv")
+top_four = world_population[0:4]
+top_four_data =top_four.set_index("Country/Territory")
+most_recent = top_four_data.iloc[:,-1:]
+data = most_recent.reset_index()
+countries = top_four["Country/Territory"].values
 
-colours = af_colours("categorical", "hex", 6)
-categorical = sns.set_palette(sns.color_palette(colours))
+colours_list = af_colours("categorical", "hex", 4)
+categorical = sns.color_palette(colours_list)
 
 percentage_labels = []
-for n in np.arange(population_data.shape[0]):
-    percentage = 100 * ((population_data.iloc[n].values.item())
-                    /(population_data.values.sum().item()))
+for n in np.arange(most_recent.shape[0]):
+    percentage = 100 * ((most_recent.iloc[n].values.item())
+                    /(most_recent.values.sum().item()))
     value = round(percentage, 1)
-    country = str(data["Country"].iloc[n])
+    country = str(data["Country/Territory"].iloc[n])
     percentage_labels.append((country + " " + str(value) + "%"))
 
-ax = most_recent.plot.pie(x = "Country", y = "Population Estimate",
+ax = most_recent.plot.pie(x = "Country/Territory", y = "2022",
                           labels = percentage_labels,
                           legend = False,
+                          colors = categorical,
+                          pctdistance = 1,
+                          counterclock = False,
+                          startangle = 90,
                           wedgeprops = {"edgecolor": "white",
-                                        "linewidth": 2,
+                                        "linewidth": 1.5,
                                         "antialiased": True})
 ax.set_ylabel(None)
-ax.set_title("Percentage Population of UK Countries in 2022")
+ax.set_title("Population of Four Most Populous Countries in 2022")
 
 plt.show()
 
 ```
+
+This a pie chart showing the proportional populations of the four most
+populous countries, China, India, the United States, and Indonesia.
 
 ```{python}
 #| eval: false
@@ -686,32 +697,36 @@ import numpy as np
 import matplotlib.pyplot as plt
 from af_colours import af_colours
 
-world_population = pd.read_csv("data\world_population_continents.csv")
-world_population = world_population.drop("Country/Territory", axis = 1)
-continents_population = world_population.groupby("Continent").sum()
-most_recent = continents_population.iloc[:,-1:]
+world_population = pd.read_csv("data\world_population_in_billions.csv")
+top_four = world_population[0:4]
+top_four_data =top_four.set_index("Country/Territory")
+most_recent = top_four_data.iloc[:,-1:]
 data = most_recent.reset_index()
-year = str(data.columns[-1])
+countries = top_four["Country/Territory"].values
 
-colours = af_colours("categorical", "hex", 6)
-categorical = sns.set_palette(sns.color_palette(colours))
+colours_list = af_colours("categorical", "hex", 4)
+categorical = sns.color_palette(colours_list)
 
 percentage_labels = []
 for n in np.arange(most_recent.shape[0]):
     percentage = 100 * ((most_recent.iloc[n].values.item())
                     /(most_recent.values.sum().item()))
     value = round(percentage, 1)
-    country = str(data["Continent"].iloc[n])
+    country = str(data["Country/Territory"].iloc[n])
     percentage_labels.append((country + " " + str(value) + "%"))
 
-ax = most_recent.plot.pie(x = "Continent", y = "2022",
+ax = most_recent.plot.pie(x = "Country/Territory", y = "2022",
                           labels = percentage_labels,
                           legend = False,
+                          colors = categorical,
+                          pctdistance = 1,
+                          counterclock = False,
+                          startangle = 90,
                           wedgeprops = {"edgecolor": "white",
-                                        "linewidth": 2,
+                                        "linewidth": 1.5,
                                         "antialiased": True})
 ax.set_ylabel(None)
-ax.set_title("Percentage Population of Continents in " + year)
+ax.set_title("Population of Four Most Populous Countries in 2022")
 
 plt.show()
 
