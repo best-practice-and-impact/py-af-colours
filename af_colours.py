@@ -36,18 +36,25 @@ def af_colours(palette: str,
 
     """
     if palette not in ["categorical", "duo", "sequential", "focus"]:
-        raise ValueError(
-             "palette value of " + palette +
-             " is incorrect, must be categorical, duo, sequential, or focus as a string.")
+        raise ValueError("palette value of " + palette +
+             " is incorrect, must be categorical, duo, sequential, " + 
+             "or focus as a string.")
     if colour_format.lower() not in ["hex", "rgb"]:
-        raise ValueError(
-             "colour_format value of " + colour_format +
+        raise ValueError("colour_format value of " + colour_format +
              " is incorrect, must be hex or rgb as a string.")
     
     elif palette == "sequential":
-        chosen_colours_list =sequential_colours(colour_format)
+        chosen_colours_list = sequential_colours(colour_format)
+        warnings.warn("This palette should only be used for sequential " +
+                  "data. For bar charts, please ensure bars have a " +
+                  "dark blue outline (hex code #12436D).",
+                  stacklevel = 2)
     elif palette == "focus":
         chosen_colours_list = focus_colours(colour_format)
+        warnings.warn("This palette should only be used to highlight " +
+                  "specific elements to help users understand the " +
+                  "information.", stacklevel = 2)
+
     elif palette == "duo":
         chosen_colours_list = duo_colours(colour_format)
     elif palette == "categorical":
@@ -55,8 +62,9 @@ def af_colours(palette: str,
                                                   number_of_colours)
     
     if len(chosen_colours_list) > 4:
-        warnings.warn("Line charts using more than four colours " +
-                      "may not meet accessibility standards.",
+        warnings.warn("It is best practice to limit graphs to four " +
+                      "categories where possible to avoid graphs " +
+                      "becoming cluttered.",
                       stacklevel = 2)
     return chosen_colours_list
 
@@ -150,6 +158,7 @@ def sequential_colours(colour_format = "hex"):
         sequential_colours_list
 
     """
+    
     sequential_hex_list = ["#12436D", "#2073BC", "#6BACE6"]
     
     if colour_format == "hex":
@@ -176,6 +185,7 @@ def focus_colours(colour_format = "hex"):
         focus_colours_list
 
     """
+    
     focus_hex_list = ["#12436D","#BFBFBF"]
     
     if colour_format == "hex":
