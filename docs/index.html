@@ -3,7 +3,7 @@
   <meta charset="utf-8">
   <meta name="generator" content="quarto-0.9.80">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-  <title>af_colours</title>
+  <title>py_af_colours</title>
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -97,8 +97,8 @@
 <h2 id="toc-title">Table of contents</h2>
 <ul>
 <li><a href="#this-guidance-is-in-draft-and-remains-subject-to-review-and-approval." class="nav-link active" data-scroll-target="#this-guidance-is-in-draft-and-remains-subject-to-review-and-approval.">This guidance is in draft and remains subject to review and approval.</a></li>
-<li><a href="#requirements" class="nav-link" data-scroll-target="#requirements">Requirements</a><a name="requirements" class="nav-link" data-scroll-target="undefined"></a></li>
-<li><a href="#installing-af_colours" class="nav-link" data-scroll-target="#installing-af_colours">Installing af_colours</a><a name="installingafcolours" class="nav-link" data-scroll-target="undefined"></a></li>
+<li><a href="#requirements" class="nav-link" data-scroll-target="#requirements">Requirements</a></li>
+<li><a href="#installing-py_af_colours" class="nav-link" data-scroll-target="#installing-py_af_colours">Installing py_af_colours</a></li>
 <li><a href="#how-to-obtain-colours" class="nav-link" data-scroll-target="#how-to-obtain-colours">How to obtain colours</a><a name="howtoobtain" class="nav-link" data-scroll-target="undefined"></a></li>
 <li><a href="#basic-examples" class="nav-link" data-scroll-target="#basic-examples">Basic examples</a></li>
 <li><a href="#application" class="nav-link" data-scroll-target="#application">Application</a><a name="application" class="nav-link" data-scroll-target="undefined"></a>
@@ -115,7 +115,7 @@
 <main class="content" id="quarto-document-content">
 <header id="title-block-header" class="quarto-title-block default">
 
-<div class="quarto-title"><h1 class="title display-7">af_colours</h1></div></header>
+<div class="quarto-title"><h1 class="title display-7">py_af_colours</h1></div></header>
 
 <style>
 table, th, td {
@@ -130,30 +130,30 @@ table, th, td {
 <p><br></p>
 </section>
 <section id="requirements" class="level2">
-<h2 class="anchored" data-anchor-id="requirements">Requirements<a name="requirements"></a></h2>
-<p>To run af_colours, your system requires the following installations:</p>
+<h2 class="anchored" data-anchor-id="requirements">Requirements</h2>
+<p>To run af_colours in Python, your system requires the following installations:</p>
 <ol type="1">
 <li>Python 3.<br>
 </li>
-<li>the <a href="https://github.com/best-practice-and-impact/af_colours">af_colours package</a>.</li>
+<li>the <a href="https://github.com/best-practice-and-impact/py-af-colours">py_af_colours package</a>.</li>
 </ol>
 </section>
-<section id="installing-af_colours" class="level2">
-<h2 class="anchored" data-anchor-id="installing-af_colours">Installing af_colours<a name="installingafcolours"></a></h2>
+<section id="installing-py_af_colours" class="level2">
+<h2 class="anchored" data-anchor-id="installing-py_af_colours">Installing py_af_colours</h2>
 <ol type="1">
 <li>Clone the github repository.<br>
 </li>
 <li>In anaconda powershell, cd to the drive this is saved on.</li>
 <li>Run:</li>
 </ol>
-<pre class="{shell}"><code>pip install -e &lt;path to af_colours folder&gt;</code></pre>
-<p>This process may change when af_colours goes live on artifactory.</p>
+<pre class="{shell}"><code>pip install -e &lt;path to py_af_colours folder&gt;</code></pre>
+<p>This process may change when py_af_colours goes live on artifactory.</p>
 </section>
 <section id="how-to-obtain-colours" class="level2">
 <h2 class="anchored" data-anchor-id="how-to-obtain-colours">How to obtain colours<a name="howtoobtain"></a></h2>
-<p>In your python environment, import the af_colours package:</p>
+<p>In your python environment, import the py_af_colours package:</p>
 <div class="cell" data-execution_count="2">
-<div class="sourceCode" id="cb2"><pre class="sourceCode python cell-code code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> af_colours <span class="im">import</span> af_colours</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python cell-code code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> py_af_colours <span class="im">import</span> af_colours</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The af_colours function takes three arguments: palette, colour_format, and number_of_colours.</p>
 <ul>
@@ -254,12 +254,12 @@ Orange
 <p><img src="index_files\figure-html/cell-6-output-1.png" width="652" height="471"></p>
 </div>
 </div>
-<p>This line chart has two lines, one dark blue and one orange. This line chart uses data based on the <a href="https://www.kaggle.com/datasets/iamsouravbanerjee/world-population-dataset?resource=download">world population dataset</a>. Data is available with the af_colours package.</p>
+<p>This line chart has two lines, one dark blue and one orange. This line chart uses data based on the <a href="https://www.kaggle.com/datasets/iamsouravbanerjee/world-population-dataset?resource=download">world population dataset</a>. Data is available with the py_af_colours package.</p>
 <div class="cell" data-execution_count="6">
 <div class="sourceCode" id="cb8"><pre class="sourceCode python cell-code code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> af_colours <span class="im">import</span> af_colours</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> py_af_colours <span class="im">import</span> af_colours</span>
 <span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>world_population <span class="op">=</span> pd.read_csv(<span class="st">"data\world_population_in_billions.csv"</span>)</span>
 <span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>top_two_data <span class="op">=</span> world_population.set_index(<span class="st">"Country/Territory"</span>)[<span class="dv">0</span>:<span class="dv">2</span>]</span>
@@ -354,13 +354,13 @@ Grey
 <p><img src="index_files\figure-html/cell-8-output-2.png" width="644" height="471"></p>
 </div>
 </div>
-<p>This line chart uses data based on the <a href="https://www.kaggle.com/datasets/iamsouravbanerjee/world-population-dataset?resource=download">world population dataset</a>. All lines are light grey, except the line showing the time series for India. Data is available with the af_colours package.</p>
+<p>This line chart uses data based on the <a href="https://www.kaggle.com/datasets/iamsouravbanerjee/world-population-dataset?resource=download">world population dataset</a>. All lines are light grey, except the line showing the time series for India. Data is available with the py_af_colours package.</p>
 <div class="cell" data-execution_count="8">
 <div class="sourceCode" id="cb10"><pre class="sourceCode python cell-code code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
 <span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> af_colours <span class="im">import</span> af_colours</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> py_af_colours <span class="im">import</span> af_colours</span>
 <span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>world_population <span class="op">=</span> pd.read_csv(<span class="st">"data\world_population_in_billions.csv"</span>)</span>
 <span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>top_five <span class="op">=</span> world_population[<span class="dv">0</span>:<span class="dv">5</span>]</span>
@@ -480,14 +480,14 @@ Light blue
 <p><img src="index_files\figure-html/cell-10-output-2.png" width="681" height="459"></p>
 </div>
 </div>
-<p>This clustered bar chart uses data based on the <a href="https://www.kaggle.com/datasets/elmoallistair/population-by-age-group-2021">population by age dataset</a> and shows data for five countries. The legend is presented in the same order as the bars in the clusters. Data is available with the af_colours package.</p>
+<p>This clustered bar chart uses data based on the <a href="https://www.kaggle.com/datasets/elmoallistair/population-by-age-group-2021">population by age dataset</a> and shows data for five countries. The legend is presented in the same order as the bars in the clusters. Data is available with the py_af_colours package.</p>
 <p>Distinct from previous examples, this section features how to use the rgb list returned by af_colours. It is generally easier to use hex codes, but this example is included for completeness. The end result is the same.</p>
 <p>The spacing in this example is to account for the bar borders, which are required for accessibility purposes.</p>
 <div class="cell" data-execution_count="10">
 <div class="sourceCode" id="cb12"><pre class="sourceCode python cell-code code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> af_colours <span class="im">import</span> af_colours</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> py_af_colours <span class="im">import</span> af_colours</span>
 <span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>world_population_by_age <span class="op">=</span> pd.read_csv(<span class="st">"data\population_by_age.csv"</span>)</span>
 <span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>top_five_age <span class="op">=</span> world_population_by_age[<span class="dv">0</span>:<span class="dv">5</span>]</span>
@@ -623,7 +623,7 @@ Light purple
 </tr>
 </tbody></table>
 <p><br></p>
-<p>The following charts use data based on the <a href="https://www.kaggle.com/datasets/iamsouravbanerjee/world-population-dataset?resource=download">world population dataset</a>. Data is available with the af_colours package.</p>
+<p>The following charts use data based on the <a href="https://www.kaggle.com/datasets/iamsouravbanerjee/world-population-dataset?resource=download">world population dataset</a>. Data is available with the py_af_colours package.</p>
 <section id="figure-4-bar-chart-using-the-categorical-colour-palette" class="level4">
 <h4 class="anchored" data-anchor-id="figure-4-bar-chart-using-the-categorical-colour-palette">Figure 4: Bar chart using the Categorical colour palette</h4>
 <div class="cell" data-execution_count="11">
@@ -635,7 +635,7 @@ Light purple
 <div class="sourceCode" id="cb13"><pre class="sourceCode python cell-code code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> af_colours <span class="im">import</span> af_colours</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> py_af_colours <span class="im">import</span> af_colours</span>
 <span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>world_population <span class="op">=</span> pd.read_csv(<span class="st">"data\world_population_in_billions.csv"</span>)</span>
 <span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>top_four <span class="op">=</span> world_population[<span class="dv">0</span>:<span class="dv">4</span>]</span>
@@ -686,7 +686,7 @@ Light purple
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> af_colours <span class="im">import</span> af_colours</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> py_af_colours <span class="im">import</span> af_colours</span>
 <span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>world_population <span class="op">=</span> pd.read_csv(<span class="st">"data\world_population_in_billions.csv"</span>)</span>
 <span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>top_four <span class="op">=</span> world_population[<span class="dv">0</span>:<span class="dv">4</span>]</span>
