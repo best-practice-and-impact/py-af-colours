@@ -2,7 +2,7 @@
 from setuptools import setup
 
 setup(
-    name='py-af-colours',
+    name='py_af_colours',
     version='0.1.0',
     license='MIT',
     author="Analysis standards and Pipelines team",
