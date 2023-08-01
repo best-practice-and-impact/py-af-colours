@@ -96,19 +96,18 @@
   <nav id="TOC" role="doc-toc">
 <h2 id="toc-title">Table of contents</h2>
 <ul>
-<li><a href="#this-guidance-is-in-draft-and-remains-subject-to-review-and-approval." class="nav-link active" data-scroll-target="#this-guidance-is-in-draft-and-remains-subject-to-review-and-approval.">This guidance is in draft and remains subject to review and approval.</a></li>
-<li><a href="#requirements" class="nav-link" data-scroll-target="#requirements">Requirements</a></li>
+<li><a href="#requirements" class="nav-link active" data-scroll-target="#requirements">Requirements</a></li>
 <li><a href="#installing-py_af_colours" class="nav-link" data-scroll-target="#installing-py_af_colours">Installing py_af_colours</a></li>
-<li><a href="#how-to-obtain-colours" class="nav-link" data-scroll-target="#how-to-obtain-colours">How to obtain colours</a><a name="howtoobtain" class="nav-link" data-scroll-target="undefined"></a></li>
+<li><a href="#how-to-obtain-colours" class="nav-link" data-scroll-target="#how-to-obtain-colours">How to obtain colours</a></li>
 <li><a href="#basic-examples" class="nav-link" data-scroll-target="#basic-examples">Basic examples</a></li>
-<li><a href="#application" class="nav-link" data-scroll-target="#application">Application</a><a name="application" class="nav-link" data-scroll-target="undefined"></a>
+<li><a href="#application" class="nav-link" data-scroll-target="#application">Application</a>
 <ul class="collapse">
-<li><a href="#duo" class="nav-link" data-scroll-target="#duo">Duo</a></li>
-<li><a href="#focus" class="nav-link" data-scroll-target="#focus">Focus</a></li>
-<li><a href="#sequential" class="nav-link" data-scroll-target="#sequential">Sequential</a></li>
 <li><a href="#categorical" class="nav-link" data-scroll-target="#categorical">Categorical</a></li>
+<li><a href="#duo" class="nav-link" data-scroll-target="#duo">Duo</a></li>
+<li><a href="#sequential" class="nav-link" data-scroll-target="#sequential">Sequential</a></li>
+<li><a href="#focus" class="nav-link" data-scroll-target="#focus">Focus</a></li>
 </ul></li>
-<li><a href="#maintenance" class="nav-link" data-scroll-target="#maintenance">Maintenance</a><a name="maintenance" class="nav-link" data-scroll-target="undefined"></a></li>
+<li><a href="#maintenance" class="nav-link" data-scroll-target="#maintenance">Maintenance</a></li>
 </ul>
 </nav>
 </div>
@@ -125,10 +124,8 @@ table, th, td {
 }
 </style>
 <p><br></p>
-<section id="this-guidance-is-in-draft-and-remains-subject-to-review-and-approval." class="level2">
-<h2 class="anchored" data-anchor-id="this-guidance-is-in-draft-and-remains-subject-to-review-and-approval.">This guidance is in draft and remains subject to review and approval.</h2>
-<p><br></p>
-</section>
+<p>This page contains the documentation for the Python package of the Analysis Function’s colour palettes. The <a href="https://github.com/best-practice-and-impact/py-af-colours">py_af_colours package</a> aims to maintain the accessibility of graph outputs generated in Python across the Analysis Function by simplifying the process by which users can access the standardised colour palettes.</p>
+<p>This guidance is in draft and remains subject to review and approval.</p>
 <section id="requirements" class="level2">
 <h2 class="anchored" data-anchor-id="requirements">Requirements</h2>
 <p>To run af_colours in Python, your system requires the following installations:</p>
@@ -147,17 +144,17 @@ table, th, td {
 <li>Run:</li>
 </ol>
 <pre class="{shell}"><code>pip install -e &lt;path to py_af_colours folder&gt;</code></pre>
-<p>This process may change when py_af_colours goes live on artifactory.</p>
+<p>This process may change when py_af_colours goes live on PyPI and artifactory.</p>
 </section>
 <section id="how-to-obtain-colours" class="level2">
-<h2 class="anchored" data-anchor-id="how-to-obtain-colours">How to obtain colours<a name="howtoobtain"></a></h2>
+<h2 class="anchored" data-anchor-id="how-to-obtain-colours">How to obtain colours</h2>
 <p>In your python environment, import the py_af_colours package:</p>
 <div class="cell" data-execution_count="2">
 <div class="sourceCode" id="cb2"><pre class="sourceCode python cell-code code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> py_af_colours <span class="im">import</span> af_colours</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The af_colours function takes three arguments: palette, colour_format, and number_of_colours.</p>
 <ul>
-<li><p>palette is a required parameter, chosen by the user based on the <a href="https://analysisfunction.civilservice.gov.uk/policy-store/codes-for-accessible-colours/">Analysis Function colour guidance</a>. It takes one of four possible string values corresponding to the options:</p>
+<li><p>palette is a required parameter, chosen by the user based on the <a href="https://analysisfunction.civilservice.gov.uk/policy-store/data-visualisation-colours-in-charts/">Analysis Function colour guidance</a>. It takes one of four possible string values corresponding to the options:</p>
 <ul>
 <li>“duo”<br>
 </li>
@@ -181,7 +178,7 @@ table, th, td {
 <p>For example, to return the duo colour palette hex codes:</p>
 <div class="cell" data-execution_count="3">
 <div class="sourceCode" id="cb3"><pre class="sourceCode python cell-code code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>af_colours(<span class="st">"duo"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display" data-execution_count="12">
+<div class="cell-output-display" data-execution_count="3">
 <pre><code>['#12436D', '#F46A25']</code></pre>
 </div>
 </div>
@@ -193,341 +190,17 @@ table, th, td {
 <pre><code>UserWarning: It is best practice to limit graphs to four categories where possible to avoid graphs becoming cluttered.
   af_colours("categorical", "rgb", 5)</code></pre>
 </div>
-<div class="cell-output-display" data-execution_count="13">
+<div class="cell-output-display" data-execution_count="4">
 <pre><code>[(18, 67, 109), (40, 161, 151), (128, 22, 80), (244, 106, 37), (61, 61, 61)]</code></pre>
 </div>
 </div>
-<p><br></p>
 <p>See also that a warning is given for colours lists greater than four to let the user know that for best practice, it is preferable to use a limit of four categories.</p>
 </section>
 <section id="application" class="level2">
-<h2 class="anchored" data-anchor-id="application">Application<a name="application"></a></h2>
-<section id="duo" class="level3">
-<h3 class="anchored" data-anchor-id="duo">Duo</h3>
-<table style="width:80%">
-<tbody><tr>
-<th style="background-color: #D9EDF7">
-Colour name
-</th>
-<th style="background-color: #D9EDF7">
-Hex code
-</th>
-<th style="background-color: #D9EDF7">
-RGB code
-</th>
-<th style="background-color: #D9EDF7">
-Colour fill
-</th>
-</tr>
-<tr>
-<td>
-Dark blue
-</td>
-<td>
-#12436D
-</td>
-<td>
-(18, 67, 109)
-</td>
-<td style="background-color: #12436D; border-bottom: 1px solid white">
-</td>
-</tr>
-<tr>
-<td>
-Orange
-</td>
-<td>
-#F46A25
-</td>
-<td>
-(244, 106, 37)
-</td>
-<td style="background-color: #F46A25; border-bottom: 1px solid white">
-</td>
-</tr>
-</tbody></table>
-<p><br></p>
-<section id="figure-1-line-chart-using-the-duo-colour-palette" class="level4">
-<h4 class="anchored" data-anchor-id="figure-1-line-chart-using-the-duo-colour-palette">Figure 1: Line chart using the Duo colour palette</h4>
-<div class="cell" data-execution_count="5">
-<div class="cell-output-display">
-<p><img src="index_files\figure-html/cell-6-output-1.png" width="652" height="471"></p>
-</div>
-</div>
-<p>This line chart has two lines, one dark blue and one orange. This line chart uses data based on the <a href="https://www.kaggle.com/datasets/iamsouravbanerjee/world-population-dataset?resource=download">world population dataset</a>. Data is available with the py_af_colours package.</p>
-<div class="cell" data-execution_count="6">
-<div class="sourceCode" id="cb8"><pre class="sourceCode python cell-code code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> py_af_colours <span class="im">import</span> af_colours</span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>world_population <span class="op">=</span> pd.read_csv(<span class="st">"data\world_population_in_billions.csv"</span>)</span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>top_two_data <span class="op">=</span> world_population.set_index(<span class="st">"Country/Territory"</span>)[<span class="dv">0</span>:<span class="dv">2</span>]</span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>duo <span class="op">=</span> sns.color_palette(af_colours(<span class="st">"duo"</span>))</span>
-<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots()</span>
-<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>sns.lineplot(data <span class="op">=</span> (top_two_data.transpose()), </span>
-<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>                     palette <span class="op">=</span> duo,</span>
-<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>                     dashes <span class="op">=</span> <span class="va">False</span>,</span>
-<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>                     legend <span class="op">=</span> <span class="va">False</span>)</span>
-<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">"Year"</span>)</span>
-<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">"Population (Billion)"</span>, rotation <span class="op">=</span> <span class="dv">0</span>)</span>
-<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>ax.yaxis.set_label_coords(<span class="op">-</span><span class="fl">0.15</span>, <span class="fl">1.05</span>)</span>
-<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a>ax.grid(visible <span class="op">=</span> <span class="va">True</span>, which <span class="op">=</span> <span class="st">"both"</span>, axis <span class="op">=</span> <span class="st">"y"</span>, color <span class="op">=</span> <span class="st">"#BEBEBE"</span>)</span>
-<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a>ax.set_axisbelow(<span class="va">True</span>)</span>
-<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a>ax.set_frame_on(<span class="va">False</span>)</span>
-<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a>ax.tick_params(color <span class="op">=</span> <span class="st">"#D6D6D6"</span>)</span>
-<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a>x_label_coord <span class="op">=</span> <span class="bu">len</span>(top_two_data.columns) <span class="op">-</span> <span class="dv">1</span></span>
-<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a>y_label_coord1 <span class="op">=</span> top_two_data.values[<span class="dv">0</span>][<span class="op">-</span><span class="dv">1</span>] <span class="op">+</span> <span class="fl">0.03</span></span>
-<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a>y_label_coord2 <span class="op">=</span> top_two_data.values[<span class="dv">1</span>][<span class="op">-</span><span class="dv">1</span>] <span class="op">-</span> <span class="fl">0.05</span></span>
-<span id="cb8-30"><a href="#cb8-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-31"><a href="#cb8-31" aria-hidden="true" tabindex="-1"></a>ax.annotate(<span class="st">" China"</span>, xy <span class="op">=</span> (x_label_coord, y_label_coord1))</span>
-<span id="cb8-32"><a href="#cb8-32" aria-hidden="true" tabindex="-1"></a>ax.annotate(<span class="st">" India"</span>, xy <span class="op">=</span> (x_label_coord, y_label_coord2))</span>
-<span id="cb8-33"><a href="#cb8-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-34"><a href="#cb8-34" aria-hidden="true" tabindex="-1"></a>ax.set_xlim(left <span class="op">=</span> <span class="dv">0</span>, right <span class="op">=</span> <span class="bu">len</span>(top_two_data.columns) <span class="op">-</span> <span class="dv">1</span>)</span>
-<span id="cb8-35"><a href="#cb8-35" aria-hidden="true" tabindex="-1"></a>ax.set_ylim(bottom <span class="op">=</span> <span class="op">-</span><span class="fl">0.01</span>, top <span class="op">=</span> <span class="fl">1.6</span>)</span>
-<span id="cb8-36"><a href="#cb8-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-37"><a href="#cb8-37" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
-<span id="cb8-38"><a href="#cb8-38" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p><br></p>
-</section>
-</section>
-<section id="focus" class="level3">
-<h3 class="anchored" data-anchor-id="focus">Focus</h3>
-<table style="width:80%">
-<tbody><tr>
-<th style="background-color: #D9EDF7">
-Colour name
-</th>
-<th style="background-color: #D9EDF7">
-Hex code
-</th>
-<th style="background-color: #D9EDF7">
-RGB code
-</th>
-<th style="background-color: #D9EDF7">
-Colour fill
-</th>
-</tr>
-<tr>
-<td>
-Dark blue
-</td>
-<td>
-#12436D
-</td>
-<td>
-(18, 67, 109)
-</td>
-<td style="background-color: #12436D; border-bottom: 1px solid white">
-</td>
-</tr>
-<tr>
-<td>
-Grey
-</td>
-<td>
-#BFBFBF
-</td>
-<td>
-(191, 191, 191)
-</td>
-<td style="background-color: #BFBFBF; border-bottom: 1px solid white">
-</td>
-</tr>
-</tbody></table>
-<p><br></p>
-<section id="figure-2-line-chart-using-the-focus-colour-palette" class="level4">
-<h4 class="anchored" data-anchor-id="figure-2-line-chart-using-the-focus-colour-palette">Figure 2: Line chart using the Focus colour palette</h4>
-<div class="cell" data-execution_count="7">
-<div class="cell-output-stderr">
-<pre><code>UserWarning: This palette should only be used to highlight specific elements to help users understand the information.
-  focus_colours = af_colours("focus")</code></pre>
-</div>
-<div class="cell-output-display">
-<p><img src="index_files\figure-html/cell-8-output-2.png" width="644" height="471"></p>
-</div>
-</div>
-<p>This line chart uses data based on the <a href="https://www.kaggle.com/datasets/iamsouravbanerjee/world-population-dataset?resource=download">world population dataset</a>. All lines are light grey, except the line showing the time series for India. Data is available with the py_af_colours package.</p>
-<div class="cell" data-execution_count="8">
-<div class="sourceCode" id="cb10"><pre class="sourceCode python cell-code code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> py_af_colours <span class="im">import</span> af_colours</span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>world_population <span class="op">=</span> pd.read_csv(<span class="st">"data\world_population_in_billions.csv"</span>)</span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>top_five <span class="op">=</span> world_population[<span class="dv">0</span>:<span class="dv">5</span>]</span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>top_five_data <span class="op">=</span> top_five.set_index(<span class="st">"Country/Territory"</span>)</span>
-<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>focus_country <span class="op">=</span> <span class="st">"India"</span></span>
-<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>focus_colours <span class="op">=</span> af_colours(<span class="st">"focus"</span>)</span>
-<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>focus_index <span class="op">=</span> top_five.index[top_five[<span class="st">"Country/Territory"</span>] </span>
-<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>                                  <span class="op">==</span> focus_country].tolist()</span>
-<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>focus_palette <span class="op">=</span> <span class="bu">int</span>(top_five_data.shape[<span class="dv">0</span>]) <span class="op">*</span> [focus_colours[<span class="dv">1</span>]]</span>
-<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>focus_palette[focus_index[<span class="dv">0</span>]] <span class="op">=</span> focus_colours[<span class="dv">0</span>]</span>
-<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>focus <span class="op">=</span> sns.color_palette(focus_palette)</span>
-<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots()</span>
-<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a>sns.lineplot(data <span class="op">=</span> top_five_data.transpose(), </span>
-<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a>                    palette <span class="op">=</span> focus,</span>
-<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a>                    dashes <span class="op">=</span> <span class="va">False</span>,</span>
-<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a>                    legend <span class="op">=</span> <span class="va">False</span>)</span>
-<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-26"><a href="#cb10-26" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">"Year"</span>)</span>
-<span id="cb10-27"><a href="#cb10-27" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">"Population (Billion)"</span>, rotation <span class="op">=</span> <span class="dv">0</span>)</span>
-<span id="cb10-28"><a href="#cb10-28" aria-hidden="true" tabindex="-1"></a>ax.yaxis.set_label_coords(<span class="op">-</span><span class="fl">0.15</span>, <span class="fl">1.05</span>)</span>
-<span id="cb10-29"><a href="#cb10-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-30"><a href="#cb10-30" aria-hidden="true" tabindex="-1"></a>ax.grid(visible <span class="op">=</span> <span class="va">True</span>, which <span class="op">=</span> <span class="st">"both"</span>, axis <span class="op">=</span> <span class="st">"y"</span>, color <span class="op">=</span> <span class="st">"#D6D6D6"</span>)</span>
-<span id="cb10-31"><a href="#cb10-31" aria-hidden="true" tabindex="-1"></a>ax.set_axisbelow(<span class="va">True</span>)</span>
-<span id="cb10-32"><a href="#cb10-32" aria-hidden="true" tabindex="-1"></a>ax.set_frame_on(<span class="va">False</span>)</span>
-<span id="cb10-33"><a href="#cb10-33" aria-hidden="true" tabindex="-1"></a>ax.tick_params(color <span class="op">=</span> <span class="st">"#D6D6D6"</span>)</span>
-<span id="cb10-34"><a href="#cb10-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-35"><a href="#cb10-35" aria-hidden="true" tabindex="-1"></a>x_coord <span class="op">=</span> <span class="bu">len</span>(top_five.columns) <span class="op">-</span> <span class="dv">2</span></span>
-<span id="cb10-36"><a href="#cb10-36" aria-hidden="true" tabindex="-1"></a>y_coord <span class="op">=</span> []</span>
-<span id="cb10-37"><a href="#cb10-37" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> n <span class="kw">in</span> np.arange(top_five_data.shape[<span class="dv">0</span>]):</span>
-<span id="cb10-38"><a href="#cb10-38" aria-hidden="true" tabindex="-1"></a>    y <span class="op">=</span> top_five_data.values[n][<span class="op">-</span><span class="dv">1</span>]</span>
-<span id="cb10-39"><a href="#cb10-39" aria-hidden="true" tabindex="-1"></a>    y_coord.append(y)</span>
-<span id="cb10-40"><a href="#cb10-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-41"><a href="#cb10-41" aria-hidden="true" tabindex="-1"></a>ax.annotate(<span class="st">" China"</span>, xy <span class="op">=</span> (x_coord, y_coord[<span class="dv">0</span>]))</span>
-<span id="cb10-42"><a href="#cb10-42" aria-hidden="true" tabindex="-1"></a>ax.annotate(<span class="st">" India"</span>, xy <span class="op">=</span> (x_coord, y_coord[<span class="dv">1</span>] <span class="op">-</span> <span class="fl">0.04</span>))</span>
-<span id="cb10-43"><a href="#cb10-43" aria-hidden="true" tabindex="-1"></a>ax.annotate(<span class="st">" United States"</span>, xy <span class="op">=</span> (x_coord, y_coord[<span class="dv">2</span>] <span class="op">+</span> <span class="fl">0.01</span>))</span>
-<span id="cb10-44"><a href="#cb10-44" aria-hidden="true" tabindex="-1"></a>ax.annotate(<span class="st">" Indonesia"</span>, xy <span class="op">=</span> (x_coord, y_coord[<span class="dv">3</span>]))</span>
-<span id="cb10-45"><a href="#cb10-45" aria-hidden="true" tabindex="-1"></a>ax.annotate(<span class="st">" Pakistan"</span>, xy <span class="op">=</span> (x_coord, y_coord[<span class="dv">4</span>] <span class="op">-</span> <span class="fl">0.02</span>))</span>
-<span id="cb10-46"><a href="#cb10-46" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-47"><a href="#cb10-47" aria-hidden="true" tabindex="-1"></a>ax.set_xlim(left <span class="op">=</span> <span class="dv">0</span>, right <span class="op">=</span> (<span class="bu">len</span>(top_five.columns) <span class="op">-</span> <span class="dv">2</span>))</span>
-<span id="cb10-48"><a href="#cb10-48" aria-hidden="true" tabindex="-1"></a>ax.set_ylim(bottom <span class="op">=</span> <span class="op">-</span><span class="fl">0.01</span>, top <span class="op">=</span> <span class="fl">1.6</span>)</span>
-<span id="cb10-49"><a href="#cb10-49" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-50"><a href="#cb10-50" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
-<span id="cb10-51"><a href="#cb10-51" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p><br></p>
-</section>
-</section>
-<section id="sequential" class="level3">
-<h3 class="anchored" data-anchor-id="sequential">Sequential</h3>
-<table style="width:80%">
-<tbody><tr>
-<th style="background-color: #D9EDF7">
-Colour name
-</th>
-<th style="background-color: #D9EDF7">
-Hex code
-</th>
-<th style="background-color: #D9EDF7">
-RGB code
-</th>
-<th style="background-color: #D9EDF7">
-Colour fill
-</th>
-</tr>
-<tr>
-<td>
-Dark blue
-</td>
-<td>
-#12436D
-</td>
-<td>
-(18, 67, 109)
-</td>
-<td style="background-color: #12436D; border-bottom: 1px solid white">
-</td>
-</tr>
-<tr>
-<td>
-Mid blue
-</td>
-<td>
-#2073BC
-</td>
-<td>
-(32, 115, 188)
-</td>
-<td style="background-color: #2073BC; border-bottom: 1px solid white">
-</td>
-</tr>
-<tr>
-<td>
-Light blue
-</td>
-<td>
-#6BACE6
-</td>
-<td>
-(107, 172, 230)
-</td>
-<td style="background-color: #6BACE6; border-bottom: 1px solid white">
-</td>
-</tr>
-</tbody></table>
-<p><br></p>
-<section id="figure-3-bar-chart-using-the-sequential-colour-palette" class="level4">
-<h4 class="anchored" data-anchor-id="figure-3-bar-chart-using-the-sequential-colour-palette">Figure 3: Bar chart using the Sequential colour palette</h4>
-<div class="cell" data-execution_count="9">
-<div class="cell-output-stderr">
-<pre><code>UserWarning: This palette should only be used for sequential data. For bar charts, please ensure bars have a dark blue outline (hex code #12436D).
-  colours = af_colours("sequential", "rgb")</code></pre>
-</div>
-<div class="cell-output-display">
-<p><img src="index_files\figure-html/cell-10-output-2.png" width="681" height="459"></p>
-</div>
-</div>
-<p>This clustered bar chart uses data based on the <a href="https://www.kaggle.com/datasets/elmoallistair/population-by-age-group-2021">population by age dataset</a> and shows data for five countries. The legend is presented in the same order as the bars in the clusters. Data is available with the py_af_colours package.</p>
-<p>Distinct from previous examples, this section features how to use the rgb list returned by af_colours. It is generally easier to use hex codes, but this example is included for completeness. The end result is the same.</p>
-<p>The spacing in this example is to account for the bar borders, which are required for accessibility purposes.</p>
-<div class="cell" data-execution_count="10">
-<div class="sourceCode" id="cb12"><pre class="sourceCode python cell-code code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> py_af_colours <span class="im">import</span> af_colours</span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>world_population_by_age <span class="op">=</span> pd.read_csv(<span class="st">"data\population_by_age.csv"</span>)</span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>top_five_age <span class="op">=</span> world_population_by_age[<span class="dv">0</span>:<span class="dv">5</span>]</span>
-<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>top_five_age_data <span class="op">=</span> top_five_age.set_index(top_five_age[<span class="st">"Country"</span>])</span>
-<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>countries <span class="op">=</span> top_five_age[<span class="st">"Country"</span>].values</span>
-<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots()</span>
-<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>x_spacing <span class="op">=</span> np.arange(top_five_age.shape[<span class="dv">0</span>])</span>
-<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>colours <span class="op">=</span> af_colours(<span class="st">"sequential"</span>, <span class="st">"rgb"</span>)</span>
-<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>sequential <span class="op">=</span> [<span class="bu">tuple</span>(t <span class="op">/</span> <span class="dv">255</span> <span class="cf">for</span> t <span class="kw">in</span> x) <span class="cf">for</span> x <span class="kw">in</span> colours]</span>
-<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a>plt.bar(x_spacing <span class="op">-</span> <span class="fl">0.25</span>, top_five_age[<span class="st">"Under 25"</span>].values,</span>
-<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a>        width <span class="op">=</span> <span class="fl">0.19</span>, zorder <span class="op">=</span> <span class="dv">2</span>, edgecolor <span class="op">=</span> sequential[<span class="dv">0</span>],</span>
-<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a>        label <span class="op">=</span> <span class="st">"0 to 25"</span>, color <span class="op">=</span> sequential[<span class="dv">0</span>])</span>
-<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a>plt.bar(x_spacing, top_five_age[<span class="st">"25-64 years"</span>].values,</span>
-<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a>        width <span class="op">=</span> <span class="fl">0.19</span>, zorder <span class="op">=</span> <span class="dv">2</span>, edgecolor <span class="op">=</span> sequential[<span class="dv">0</span>],</span>
-<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a>        label <span class="op">=</span> <span class="st">"25 to 64"</span>, color<span class="op">=</span>sequential[<span class="dv">1</span>])</span>
-<span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a>plt.bar(x_spacing <span class="op">+</span> <span class="fl">0.25</span>, top_five_age[<span class="st">"65+"</span>].values,</span>
-<span id="cb12-24"><a href="#cb12-24" aria-hidden="true" tabindex="-1"></a>        width <span class="op">=</span> <span class="fl">0.19</span>, zorder <span class="op">=</span> <span class="dv">2</span>, edgecolor <span class="op">=</span> sequential[<span class="dv">0</span>],</span>
-<span id="cb12-25"><a href="#cb12-25" aria-hidden="true" tabindex="-1"></a>        label <span class="op">=</span> <span class="st">"65+"</span>, color <span class="op">=</span> sequential[<span class="dv">2</span>])</span>
-<span id="cb12-26"><a href="#cb12-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-27"><a href="#cb12-27" aria-hidden="true" tabindex="-1"></a>plt.box(<span class="va">False</span>)</span>
-<span id="cb12-28"><a href="#cb12-28" aria-hidden="true" tabindex="-1"></a>plt.grid(visible <span class="op">=</span> <span class="va">True</span>, which <span class="op">=</span> <span class="st">"both"</span>, axis <span class="op">=</span> <span class="st">"y"</span>, color <span class="op">=</span> <span class="st">"#D6D6D6"</span>) </span>
-<span id="cb12-29"><a href="#cb12-29" aria-hidden="true" tabindex="-1"></a>plt.xticks(x_spacing, top_five_age[<span class="st">"Country"</span>].values)</span>
-<span id="cb12-30"><a href="#cb12-30" aria-hidden="true" tabindex="-1"></a>plt.tick_params(color <span class="op">=</span> <span class="st">"white"</span>)</span>
-<span id="cb12-31"><a href="#cb12-31" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">"Country"</span>)</span>
-<span id="cb12-32"><a href="#cb12-32" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">"Population (Billion)"</span>, rotation <span class="op">=</span> <span class="dv">0</span>)</span>
-<span id="cb12-33"><a href="#cb12-33" aria-hidden="true" tabindex="-1"></a>ax.yaxis.set_label_coords(<span class="op">-</span><span class="fl">0.15</span>, <span class="fl">1.05</span>)</span>
-<span id="cb12-34"><a href="#cb12-34" aria-hidden="true" tabindex="-1"></a>ax.set_ylim(top <span class="op">=</span> <span class="fl">0.9</span>)</span>
-<span id="cb12-35"><a href="#cb12-35" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-36"><a href="#cb12-36" aria-hidden="true" tabindex="-1"></a>plt.legend(bbox_to_anchor <span class="op">=</span> (<span class="fl">0.025</span>, <span class="fl">0.62</span>, <span class="fl">0.5</span>, <span class="fl">0.5</span>), ncol <span class="op">=</span> <span class="dv">4</span>,</span>
-<span id="cb12-37"><a href="#cb12-37" aria-hidden="true" tabindex="-1"></a>            handlelength <span class="op">=</span> <span class="fl">0.7</span>, frameon <span class="op">=</span> <span class="va">False</span>)</span>
-<span id="cb12-38"><a href="#cb12-38" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p><br></p>
-</section>
-</section>
+<h2 class="anchored" data-anchor-id="application">Application</h2>
 <section id="categorical" class="level3">
 <h3 class="anchored" data-anchor-id="categorical">Categorical</h3>
+<p>This palette is for data which can be divided into groups or categories by using names or labels.</p>
 <table style="width:80%">
 <tbody><tr>
 <th style="background-color: #D9EDF7">
@@ -623,110 +296,409 @@ Light purple
 </tr>
 </tbody></table>
 <p><br></p>
-<p>The following charts use data based on the <a href="https://www.kaggle.com/datasets/iamsouravbanerjee/world-population-dataset?resource=download">world population dataset</a>. Data is available with the py_af_colours package.</p>
-<section id="figure-4-bar-chart-using-the-categorical-colour-palette" class="level4">
-<h4 class="anchored" data-anchor-id="figure-4-bar-chart-using-the-categorical-colour-palette">Figure 4: Bar chart using the Categorical colour palette</h4>
-<div class="cell" data-execution_count="11">
-<div class="cell-output-display">
-<p><img src="index_files\figure-html/cell-12-output-1.png" width="681" height="459"></p>
-</div>
-</div>
-<div class="cell" data-execution_count="12">
-<div class="sourceCode" id="cb13"><pre class="sourceCode python cell-code code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> py_af_colours <span class="im">import</span> af_colours</span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>world_population <span class="op">=</span> pd.read_csv(<span class="st">"data\world_population_in_billions.csv"</span>)</span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>top_four <span class="op">=</span> world_population[<span class="dv">0</span>:<span class="dv">4</span>]</span>
-<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>top_four_data <span class="op">=</span> top_four.set_index(<span class="st">"Country/Territory"</span>)</span>
-<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>years_of_interest  <span class="op">=</span> top_four_data.columns.tolist()[<span class="op">-</span><span class="dv">4</span>:]</span>
-<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>categorical <span class="op">=</span> sns.color_palette(af_colours(<span class="st">"categorical"</span>, <span class="st">"hex"</span>, <span class="dv">4</span>))</span>
-<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>population_over_time <span class="op">=</span> pd.melt(top_four_data.reset_index(),</span>
-<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>                                   id_vars <span class="op">=</span> <span class="st">"Country/Territory"</span>,</span>
-<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>                                   value_vars <span class="op">=</span> years_of_interest,</span>
-<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a>                                   var_name <span class="op">=</span> <span class="st">"Year"</span>,</span>
-<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a>                                   value_name <span class="op">=</span> <span class="st">"Population"</span>)</span>
-<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots()</span>
-<span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-22"><a href="#cb13-22" aria-hidden="true" tabindex="-1"></a>sns.barplot(x <span class="op">=</span> <span class="st">"Year"</span>, y <span class="op">=</span> <span class="st">"Population"</span>,</span>
-<span id="cb13-23"><a href="#cb13-23" aria-hidden="true" tabindex="-1"></a>            data <span class="op">=</span> population_over_time,</span>
-<span id="cb13-24"><a href="#cb13-24" aria-hidden="true" tabindex="-1"></a>            zorder <span class="op">=</span> <span class="dv">2</span>, hue <span class="op">=</span> <span class="st">"Country/Territory"</span>,</span>
-<span id="cb13-25"><a href="#cb13-25" aria-hidden="true" tabindex="-1"></a>            edgecolor <span class="op">=</span> <span class="st">"white"</span>,</span>
-<span id="cb13-26"><a href="#cb13-26" aria-hidden="true" tabindex="-1"></a>            palette <span class="op">=</span> categorical)</span>
-<span id="cb13-27"><a href="#cb13-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-28"><a href="#cb13-28" aria-hidden="true" tabindex="-1"></a>plt.box(<span class="va">False</span>)</span>
-<span id="cb13-29"><a href="#cb13-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-30"><a href="#cb13-30" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">"Population (Billion)"</span>, rotation <span class="op">=</span> <span class="dv">0</span>)</span>
-<span id="cb13-31"><a href="#cb13-31" aria-hidden="true" tabindex="-1"></a>ax.yaxis.set_label_coords(<span class="op">-</span><span class="fl">0.15</span>, <span class="fl">1.05</span>)</span>
-<span id="cb13-32"><a href="#cb13-32" aria-hidden="true" tabindex="-1"></a>plt.grid(visible <span class="op">=</span> <span class="va">True</span>, which <span class="op">=</span> <span class="st">"both"</span>, axis <span class="op">=</span> <span class="st">"y"</span>, color <span class="op">=</span> <span class="st">"#D6D6D6"</span>)</span>
-<span id="cb13-33"><a href="#cb13-33" aria-hidden="true" tabindex="-1"></a>ax.tick_params(color <span class="op">=</span> <span class="st">"#D6D6D6"</span>)</span>
-<span id="cb13-34"><a href="#cb13-34" aria-hidden="true" tabindex="-1"></a>ax.set_ylim(bottom <span class="op">=</span> <span class="op">-</span><span class="fl">0.01</span>, top <span class="op">=</span> <span class="fl">1.6</span>)</span>
-<span id="cb13-35"><a href="#cb13-35" aria-hidden="true" tabindex="-1"></a>plt.legend(frameon <span class="op">=</span> <span class="va">False</span>, loc <span class="op">=</span> <span class="st">"upper left"</span>, ncol <span class="op">=</span> <span class="dv">4</span>,</span>
-<span id="cb13-36"><a href="#cb13-36" aria-hidden="true" tabindex="-1"></a>            handlelength <span class="op">=</span> <span class="fl">0.7</span>, bbox_to_anchor <span class="op">=</span> (<span class="dv">0</span>, <span class="fl">0.62</span>, <span class="fl">0.5</span>, <span class="fl">0.5</span>))</span>
-<span id="cb13-37"><a href="#cb13-37" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-38"><a href="#cb13-38" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="figure-1-bar-chart-using-the-categorical-colour-palette" class="level4">
+<h4 class="anchored" data-anchor-id="figure-1-bar-chart-using-the-categorical-colour-palette">Figure 1: Bar chart using the Categorical colour palette</h4>
+<p><img src="figures/graph1.svg" class="img-fluid"></p>
+<p>This clustered bar chart uses data based on the <a href="https://www.kaggle.com/datasets/iamsouravbanerjee/world-population-dataset?resource=download">world population dataset</a> and shows data for four countries over five years. The legend is presented in the same order as the bars in the clusters. Data is available with the py_af_colours package.</p>
+<div class="cell" data-execution_count="5">
+<div class="sourceCode" id="cb8"><pre class="sourceCode python cell-code code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> py_af_colours <span class="im">import</span> af_colours</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>world_population <span class="op">=</span> pd.read_csv(<span class="st">"data\world_population_in_billions.csv"</span>)</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>top_four <span class="op">=</span> world_population[<span class="dv">0</span>:<span class="dv">4</span>]</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>top_four_data <span class="op">=</span> top_four.set_index(<span class="st">"Country/Territory"</span>)</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>years_of_interest  <span class="op">=</span> top_four_data.columns.tolist()[<span class="op">-</span><span class="dv">4</span>:]</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>categorical <span class="op">=</span> sns.color_palette(af_colours(<span class="st">"categorical"</span>, <span class="st">"hex"</span>, <span class="dv">4</span>))</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>population_over_time <span class="op">=</span> pd.melt(top_four_data.reset_index(),</span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>                                   id_vars <span class="op">=</span> <span class="st">"Country/Territory"</span>,</span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>                                   value_vars <span class="op">=</span> years_of_interest,</span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>                                   var_name <span class="op">=</span> <span class="st">"Year"</span>,</span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>                                   value_name <span class="op">=</span> <span class="st">"Population"</span>)</span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots()</span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a>sns.barplot(x <span class="op">=</span> <span class="st">"Year"</span>, y <span class="op">=</span> <span class="st">"Population"</span>,</span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a>            data <span class="op">=</span> population_over_time,</span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a>            zorder <span class="op">=</span> <span class="dv">2</span>, hue <span class="op">=</span> <span class="st">"Country/Territory"</span>,</span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a>            edgecolor <span class="op">=</span> <span class="st">"white"</span>,</span>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a>            palette <span class="op">=</span> categorical)</span>
+<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a>plt.box(<span class="va">False</span>)</span>
+<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">"Population (Billion)"</span>, rotation <span class="op">=</span> <span class="dv">0</span>)</span>
+<span id="cb8-30"><a href="#cb8-30" aria-hidden="true" tabindex="-1"></a>ax.yaxis.set_label_coords(<span class="op">-</span><span class="fl">0.15</span>, <span class="fl">1.05</span>)</span>
+<span id="cb8-31"><a href="#cb8-31" aria-hidden="true" tabindex="-1"></a>plt.grid(visible <span class="op">=</span> <span class="va">True</span>, which <span class="op">=</span> <span class="st">"both"</span>, axis <span class="op">=</span> <span class="st">"y"</span>, color <span class="op">=</span> <span class="st">"#D6D6D6"</span>)</span>
+<span id="cb8-32"><a href="#cb8-32" aria-hidden="true" tabindex="-1"></a>ax.tick_params(color <span class="op">=</span> <span class="st">"#D6D6D6"</span>)</span>
+<span id="cb8-33"><a href="#cb8-33" aria-hidden="true" tabindex="-1"></a>ax.set_ylim(bottom <span class="op">=</span> <span class="op">-</span><span class="fl">0.01</span>, top <span class="op">=</span> <span class="fl">1.6</span>)</span>
+<span id="cb8-34"><a href="#cb8-34" aria-hidden="true" tabindex="-1"></a>plt.legend(frameon <span class="op">=</span> <span class="va">False</span>, loc <span class="op">=</span> <span class="st">"upper left"</span>, ncol <span class="op">=</span> <span class="dv">4</span>,</span>
+<span id="cb8-35"><a href="#cb8-35" aria-hidden="true" tabindex="-1"></a>            handlelength <span class="op">=</span> <span class="fl">0.7</span>, bbox_to_anchor <span class="op">=</span> (<span class="dv">0</span>, <span class="fl">0.62</span>, <span class="fl">0.5</span>, <span class="fl">0.5</span>))</span>
+<span id="cb8-36"><a href="#cb8-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-37"><a href="#cb8-37" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><br></p>
 </section>
-<section id="figure-5-pie-chart-using-the-categorical-colour-palette" class="level4">
-<h4 class="anchored" data-anchor-id="figure-5-pie-chart-using-the-categorical-colour-palette">Figure 5: Pie chart using the Categorical colour palette</h4>
-<div class="cell" data-execution_count="13">
-<div class="cell-output-display">
-<p><img src="index_files\figure-html/cell-14-output-1.png" width="501" height="402"></p>
+<section id="figure-2-pie-chart-using-the-categorical-colour-palette" class="level4">
+<h4 class="anchored" data-anchor-id="figure-2-pie-chart-using-the-categorical-colour-palette">Figure 2: Pie chart using the Categorical colour palette</h4>
+<p><img src="figures/graph2.svg" class="img-fluid"></p>
+<p>This a pie chart showing the proportional populations of the four most populous countries, China, India, the United States, and Indonesia. This data is from the <a href="https://www.kaggle.com/datasets/iamsouravbanerjee/world-population-dataset?resource=download">world population dataset</a>, available with the py_af_colours package.</p>
+<div class="cell" data-execution_count="6">
+<div class="sourceCode" id="cb9"><pre class="sourceCode python cell-code code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> py_af_colours <span class="im">import</span> af_colours</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>world_population <span class="op">=</span> pd.read_csv(<span class="st">"data\world_population_in_billions.csv"</span>)</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>top_four <span class="op">=</span> world_population[<span class="dv">0</span>:<span class="dv">4</span>]</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>top_four_data <span class="op">=</span>top_four.set_index(<span class="st">"Country/Territory"</span>)</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>most_recent <span class="op">=</span> top_four_data.iloc[:,<span class="op">-</span><span class="dv">1</span>:]</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> most_recent.reset_index()</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>countries <span class="op">=</span> top_four[<span class="st">"Country/Territory"</span>].values</span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>colours_list <span class="op">=</span> af_colours(<span class="st">"categorical"</span>, <span class="st">"hex"</span>, <span class="dv">4</span>)</span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>categorical <span class="op">=</span> sns.color_palette(colours_list)</span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>percentage_labels <span class="op">=</span> []</span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> n <span class="kw">in</span> np.arange(most_recent.shape[<span class="dv">0</span>]):</span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>    percentage <span class="op">=</span> <span class="dv">100</span> <span class="op">*</span> ((most_recent.iloc[n].values.item())</span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>                    <span class="op">/</span>(most_recent.values.<span class="bu">sum</span>().item()))</span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>    value <span class="op">=</span> <span class="bu">round</span>(percentage, <span class="dv">1</span>)</span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a>    country <span class="op">=</span> <span class="bu">str</span>(data[<span class="st">"Country/Territory"</span>].iloc[n])</span>
+<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a>    percentage_labels.append((country <span class="op">+</span> <span class="st">" "</span> <span class="op">+</span> <span class="bu">str</span>(value) <span class="op">+</span> <span class="st">"%"</span>))</span>
+<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> most_recent.plot.pie(x <span class="op">=</span> <span class="st">"Country/Territory"</span>, y <span class="op">=</span> <span class="st">"2022"</span>,</span>
+<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a>                          labels <span class="op">=</span> percentage_labels,</span>
+<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a>                          legend <span class="op">=</span> <span class="va">False</span>,</span>
+<span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a>                          colors <span class="op">=</span> categorical,</span>
+<span id="cb9-29"><a href="#cb9-29" aria-hidden="true" tabindex="-1"></a>                          pctdistance <span class="op">=</span> <span class="dv">1</span>,</span>
+<span id="cb9-30"><a href="#cb9-30" aria-hidden="true" tabindex="-1"></a>                          counterclock <span class="op">=</span> <span class="va">False</span>,</span>
+<span id="cb9-31"><a href="#cb9-31" aria-hidden="true" tabindex="-1"></a>                          startangle <span class="op">=</span> <span class="dv">90</span>,</span>
+<span id="cb9-32"><a href="#cb9-32" aria-hidden="true" tabindex="-1"></a>                          wedgeprops <span class="op">=</span> {<span class="st">"edgecolor"</span>: <span class="st">"white"</span>,</span>
+<span id="cb9-33"><a href="#cb9-33" aria-hidden="true" tabindex="-1"></a>                                        <span class="st">"linewidth"</span>: <span class="fl">1.5</span>,</span>
+<span id="cb9-34"><a href="#cb9-34" aria-hidden="true" tabindex="-1"></a>                                        <span class="st">"antialiased"</span>: <span class="va">True</span>})</span>
+<span id="cb9-35"><a href="#cb9-35" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="va">None</span>)</span>
+<span id="cb9-36"><a href="#cb9-36" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">"Population of Four Most Populous Countries in 2022"</span>)</span>
+<span id="cb9-37"><a href="#cb9-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-38"><a href="#cb9-38" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<p><br></p>
+</section>
+</section>
+<section id="duo" class="level3">
+<h3 class="anchored" data-anchor-id="duo">Duo</h3>
+<p>This palette is for categorical data when there are two categories.</p>
+<table style="width:80%">
+<tbody><tr>
+<th style="background-color: #D9EDF7">
+Colour name
+</th>
+<th style="background-color: #D9EDF7">
+Hex code
+</th>
+<th style="background-color: #D9EDF7">
+RGB code
+</th>
+<th style="background-color: #D9EDF7">
+Colour fill
+</th>
+</tr>
+<tr>
+<td>
+Dark blue
+</td>
+<td>
+#12436D
+</td>
+<td>
+(18, 67, 109)
+</td>
+<td style="background-color: #12436D; border-bottom: 1px solid white">
+</td>
+</tr>
+<tr>
+<td>
+Orange
+</td>
+<td>
+#F46A25
+</td>
+<td>
+(244, 106, 37)
+</td>
+<td style="background-color: #F46A25; border-bottom: 1px solid white">
+</td>
+</tr>
+</tbody></table>
+<p><br></p>
+<section id="figure-3-line-chart-using-the-duo-colour-palette" class="level4">
+<h4 class="anchored" data-anchor-id="figure-3-line-chart-using-the-duo-colour-palette">Figure 3: Line chart using the Duo colour palette</h4>
+<p><img src="figures/graph3.svg" class="img-fluid"></p>
+<p>This line chart has two lines, one dark blue and one orange. This line chart uses data based on the <a href="https://www.kaggle.com/datasets/iamsouravbanerjee/world-population-dataset?resource=download">world population dataset</a>. Data is available with the py_af_colours package.</p>
+<div class="cell" data-execution_count="7">
+<div class="sourceCode" id="cb10"><pre class="sourceCode python cell-code code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> py_af_colours <span class="im">import</span> af_colours</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>world_population <span class="op">=</span> pd.read_csv(<span class="st">"data\world_population_in_billions.csv"</span>)</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>top_two_data <span class="op">=</span> world_population.set_index(<span class="st">"Country/Territory"</span>)[<span class="dv">0</span>:<span class="dv">2</span>]</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>duo <span class="op">=</span> sns.color_palette(af_colours(<span class="st">"duo"</span>))</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots()</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>sns.lineplot(data <span class="op">=</span> (top_two_data.transpose()), </span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>                     palette <span class="op">=</span> duo,</span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>                     dashes <span class="op">=</span> <span class="va">False</span>,</span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>                     legend <span class="op">=</span> <span class="va">False</span>)</span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">"Year"</span>)</span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">"Population (Billion)"</span>, rotation <span class="op">=</span> <span class="dv">0</span>)</span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>ax.yaxis.set_label_coords(<span class="op">-</span><span class="fl">0.15</span>, <span class="fl">1.05</span>)</span>
+<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a>ax.grid(visible <span class="op">=</span> <span class="va">True</span>, which <span class="op">=</span> <span class="st">"both"</span>, axis <span class="op">=</span> <span class="st">"y"</span>, color <span class="op">=</span> <span class="st">"#BEBEBE"</span>)</span>
+<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a>ax.set_axisbelow(<span class="va">True</span>)</span>
+<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a>ax.set_frame_on(<span class="va">False</span>)</span>
+<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a>ax.tick_params(color <span class="op">=</span> <span class="st">"#D6D6D6"</span>)</span>
+<span id="cb10-26"><a href="#cb10-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-27"><a href="#cb10-27" aria-hidden="true" tabindex="-1"></a>x_label_coord <span class="op">=</span> <span class="bu">len</span>(top_two_data.columns) <span class="op">-</span> <span class="dv">1</span></span>
+<span id="cb10-28"><a href="#cb10-28" aria-hidden="true" tabindex="-1"></a>y_label_coord1 <span class="op">=</span> top_two_data.values[<span class="dv">0</span>][<span class="op">-</span><span class="dv">1</span>] <span class="op">+</span> <span class="fl">0.03</span></span>
+<span id="cb10-29"><a href="#cb10-29" aria-hidden="true" tabindex="-1"></a>y_label_coord2 <span class="op">=</span> top_two_data.values[<span class="dv">1</span>][<span class="op">-</span><span class="dv">1</span>] <span class="op">-</span> <span class="fl">0.05</span></span>
+<span id="cb10-30"><a href="#cb10-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-31"><a href="#cb10-31" aria-hidden="true" tabindex="-1"></a>ax.annotate(<span class="st">" China"</span>, xy <span class="op">=</span> (x_label_coord, y_label_coord1))</span>
+<span id="cb10-32"><a href="#cb10-32" aria-hidden="true" tabindex="-1"></a>ax.annotate(<span class="st">" India"</span>, xy <span class="op">=</span> (x_label_coord, y_label_coord2))</span>
+<span id="cb10-33"><a href="#cb10-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-34"><a href="#cb10-34" aria-hidden="true" tabindex="-1"></a>ax.set_xlim(left <span class="op">=</span> <span class="dv">0</span>, right <span class="op">=</span> <span class="bu">len</span>(top_two_data.columns) <span class="op">-</span> <span class="dv">1</span>)</span>
+<span id="cb10-35"><a href="#cb10-35" aria-hidden="true" tabindex="-1"></a>ax.set_ylim(bottom <span class="op">=</span> <span class="op">-</span><span class="fl">0.01</span>, top <span class="op">=</span> <span class="fl">1.6</span>)</span>
+<span id="cb10-36"><a href="#cb10-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-37"><a href="#cb10-37" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb10-38"><a href="#cb10-38" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>This a pie chart showing the proportional populations of the four most populous countries, China, India, the United States, and Indonesia.</p>
-<div class="cell" data-execution_count="14">
-<div class="sourceCode" id="cb14"><pre class="sourceCode python cell-code code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> py_af_colours <span class="im">import</span> af_colours</span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>world_population <span class="op">=</span> pd.read_csv(<span class="st">"data\world_population_in_billions.csv"</span>)</span>
-<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>top_four <span class="op">=</span> world_population[<span class="dv">0</span>:<span class="dv">4</span>]</span>
-<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>top_four_data <span class="op">=</span>top_four.set_index(<span class="st">"Country/Territory"</span>)</span>
-<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>most_recent <span class="op">=</span> top_four_data.iloc[:,<span class="op">-</span><span class="dv">1</span>:]</span>
-<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> most_recent.reset_index()</span>
-<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>countries <span class="op">=</span> top_four[<span class="st">"Country/Territory"</span>].values</span>
-<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>colours_list <span class="op">=</span> af_colours(<span class="st">"categorical"</span>, <span class="st">"hex"</span>, <span class="dv">4</span>)</span>
-<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>categorical <span class="op">=</span> sns.color_palette(colours_list)</span>
-<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a>percentage_labels <span class="op">=</span> []</span>
-<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> n <span class="kw">in</span> np.arange(most_recent.shape[<span class="dv">0</span>]):</span>
-<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a>    percentage <span class="op">=</span> <span class="dv">100</span> <span class="op">*</span> ((most_recent.iloc[n].values.item())</span>
-<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a>                    <span class="op">/</span>(most_recent.values.<span class="bu">sum</span>().item()))</span>
-<span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a>    value <span class="op">=</span> <span class="bu">round</span>(percentage, <span class="dv">1</span>)</span>
-<span id="cb14-22"><a href="#cb14-22" aria-hidden="true" tabindex="-1"></a>    country <span class="op">=</span> <span class="bu">str</span>(data[<span class="st">"Country/Territory"</span>].iloc[n])</span>
-<span id="cb14-23"><a href="#cb14-23" aria-hidden="true" tabindex="-1"></a>    percentage_labels.append((country <span class="op">+</span> <span class="st">" "</span> <span class="op">+</span> <span class="bu">str</span>(value) <span class="op">+</span> <span class="st">"%"</span>))</span>
-<span id="cb14-24"><a href="#cb14-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-25"><a href="#cb14-25" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> most_recent.plot.pie(x <span class="op">=</span> <span class="st">"Country/Territory"</span>, y <span class="op">=</span> <span class="st">"2022"</span>,</span>
-<span id="cb14-26"><a href="#cb14-26" aria-hidden="true" tabindex="-1"></a>                          labels <span class="op">=</span> percentage_labels,</span>
-<span id="cb14-27"><a href="#cb14-27" aria-hidden="true" tabindex="-1"></a>                          legend <span class="op">=</span> <span class="va">False</span>,</span>
-<span id="cb14-28"><a href="#cb14-28" aria-hidden="true" tabindex="-1"></a>                          colors <span class="op">=</span> categorical,</span>
-<span id="cb14-29"><a href="#cb14-29" aria-hidden="true" tabindex="-1"></a>                          pctdistance <span class="op">=</span> <span class="dv">1</span>,</span>
-<span id="cb14-30"><a href="#cb14-30" aria-hidden="true" tabindex="-1"></a>                          counterclock <span class="op">=</span> <span class="va">False</span>,</span>
-<span id="cb14-31"><a href="#cb14-31" aria-hidden="true" tabindex="-1"></a>                          startangle <span class="op">=</span> <span class="dv">90</span>,</span>
-<span id="cb14-32"><a href="#cb14-32" aria-hidden="true" tabindex="-1"></a>                          wedgeprops <span class="op">=</span> {<span class="st">"edgecolor"</span>: <span class="st">"white"</span>,</span>
-<span id="cb14-33"><a href="#cb14-33" aria-hidden="true" tabindex="-1"></a>                                        <span class="st">"linewidth"</span>: <span class="fl">1.5</span>,</span>
-<span id="cb14-34"><a href="#cb14-34" aria-hidden="true" tabindex="-1"></a>                                        <span class="st">"antialiased"</span>: <span class="va">True</span>})</span>
-<span id="cb14-35"><a href="#cb14-35" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="va">None</span>)</span>
-<span id="cb14-36"><a href="#cb14-36" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">"Population of Four Most Populous Countries in 2022"</span>)</span>
-<span id="cb14-37"><a href="#cb14-37" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-38"><a href="#cb14-38" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><br></p>
+</section>
+</section>
+<section id="sequential" class="level3">
+<h3 class="anchored" data-anchor-id="sequential">Sequential</h3>
+<p>This palette is for data where the order of the data is meaningful, such as for age groups.</p>
+<table style="width:80%">
+<tbody><tr>
+<th style="background-color: #D9EDF7">
+Colour name
+</th>
+<th style="background-color: #D9EDF7">
+Hex code
+</th>
+<th style="background-color: #D9EDF7">
+RGB code
+</th>
+<th style="background-color: #D9EDF7">
+Colour fill
+</th>
+</tr>
+<tr>
+<td>
+Dark blue
+</td>
+<td>
+#12436D
+</td>
+<td>
+(18, 67, 109)
+</td>
+<td style="background-color: #12436D; border-bottom: 1px solid white">
+</td>
+</tr>
+<tr>
+<td>
+Mid blue
+</td>
+<td>
+#2073BC
+</td>
+<td>
+(32, 115, 188)
+</td>
+<td style="background-color: #2073BC; border-bottom: 1px solid white">
+</td>
+</tr>
+<tr>
+<td>
+Light blue
+</td>
+<td>
+#6BACE6
+</td>
+<td>
+(107, 172, 230)
+</td>
+<td style="background-color: #6BACE6; border-bottom: 1px solid white">
+</td>
+</tr>
+</tbody></table>
+<p><br></p>
+<section id="figure-4-bar-chart-using-the-sequential-colour-palette" class="level4">
+<h4 class="anchored" data-anchor-id="figure-4-bar-chart-using-the-sequential-colour-palette">Figure 4: Bar chart using the Sequential colour palette</h4>
+<p><img src="figures/graph4.svg" class="img-fluid"></p>
+<p>This clustered bar chart uses data based on the <a href="https://www.kaggle.com/datasets/elmoallistair/population-by-age-group-2021">population by age dataset</a> and shows data for five countries. The legend is presented in the same order as the bars in the clusters. Data is available with the py_af_colours package.</p>
+<p>Distinct from previous examples, this section features how to use the rgb list returned by af_colours. It is generally easier to use hex codes, but this example is included for completeness. The end result is the same.</p>
+<p>The spacing in this example is to account for the bar borders, which are required for accessibility purposes.</p>
+<div class="cell" data-execution_count="8">
+<div class="sourceCode" id="cb11"><pre class="sourceCode python cell-code code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> py_af_colours <span class="im">import</span> af_colours</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>world_population_by_age <span class="op">=</span> pd.read_csv(<span class="st">"data\population_by_age.csv"</span>)</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>top_five_age <span class="op">=</span> world_population_by_age[<span class="dv">0</span>:<span class="dv">5</span>]</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>top_five_age_data <span class="op">=</span> top_five_age.set_index(top_five_age[<span class="st">"Country"</span>])</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>countries <span class="op">=</span> top_five_age[<span class="st">"Country"</span>].values</span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots()</span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>x_spacing <span class="op">=</span> np.arange(top_five_age.shape[<span class="dv">0</span>])</span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>colours <span class="op">=</span> af_colours(<span class="st">"sequential"</span>, <span class="st">"rgb"</span>)</span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>sequential <span class="op">=</span> [<span class="bu">tuple</span>(t <span class="op">/</span> <span class="dv">255</span> <span class="cf">for</span> t <span class="kw">in</span> x) <span class="cf">for</span> x <span class="kw">in</span> colours]</span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a>plt.bar(x_spacing <span class="op">-</span> <span class="fl">0.25</span>, top_five_age[<span class="st">"Under 25"</span>].values,</span>
+<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a>        width <span class="op">=</span> <span class="fl">0.19</span>, zorder <span class="op">=</span> <span class="dv">2</span>, edgecolor <span class="op">=</span> sequential[<span class="dv">0</span>],</span>
+<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a>        label <span class="op">=</span> <span class="st">"0 to 25"</span>, color <span class="op">=</span> sequential[<span class="dv">0</span>])</span>
+<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a>plt.bar(x_spacing, top_five_age[<span class="st">"25-64 years"</span>].values,</span>
+<span id="cb11-22"><a href="#cb11-22" aria-hidden="true" tabindex="-1"></a>        width <span class="op">=</span> <span class="fl">0.19</span>, zorder <span class="op">=</span> <span class="dv">2</span>, edgecolor <span class="op">=</span> sequential[<span class="dv">0</span>],</span>
+<span id="cb11-23"><a href="#cb11-23" aria-hidden="true" tabindex="-1"></a>        label <span class="op">=</span> <span class="st">"25 to 64"</span>, color<span class="op">=</span>sequential[<span class="dv">1</span>])</span>
+<span id="cb11-24"><a href="#cb11-24" aria-hidden="true" tabindex="-1"></a>plt.bar(x_spacing <span class="op">+</span> <span class="fl">0.25</span>, top_five_age[<span class="st">"65+"</span>].values,</span>
+<span id="cb11-25"><a href="#cb11-25" aria-hidden="true" tabindex="-1"></a>        width <span class="op">=</span> <span class="fl">0.19</span>, zorder <span class="op">=</span> <span class="dv">2</span>, edgecolor <span class="op">=</span> sequential[<span class="dv">0</span>],</span>
+<span id="cb11-26"><a href="#cb11-26" aria-hidden="true" tabindex="-1"></a>        label <span class="op">=</span> <span class="st">"65+"</span>, color <span class="op">=</span> sequential[<span class="dv">2</span>])</span>
+<span id="cb11-27"><a href="#cb11-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-28"><a href="#cb11-28" aria-hidden="true" tabindex="-1"></a>plt.box(<span class="va">False</span>)</span>
+<span id="cb11-29"><a href="#cb11-29" aria-hidden="true" tabindex="-1"></a>plt.grid(visible <span class="op">=</span> <span class="va">True</span>, which <span class="op">=</span> <span class="st">"both"</span>, axis <span class="op">=</span> <span class="st">"y"</span>, color <span class="op">=</span> <span class="st">"#D6D6D6"</span>) </span>
+<span id="cb11-30"><a href="#cb11-30" aria-hidden="true" tabindex="-1"></a>plt.xticks(x_spacing, top_five_age[<span class="st">"Country"</span>].values)</span>
+<span id="cb11-31"><a href="#cb11-31" aria-hidden="true" tabindex="-1"></a>plt.tick_params(color <span class="op">=</span> <span class="st">"white"</span>)</span>
+<span id="cb11-32"><a href="#cb11-32" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">"Country"</span>)</span>
+<span id="cb11-33"><a href="#cb11-33" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">"Population (Billion)"</span>, rotation <span class="op">=</span> <span class="dv">0</span>)</span>
+<span id="cb11-34"><a href="#cb11-34" aria-hidden="true" tabindex="-1"></a>ax.yaxis.set_label_coords(<span class="op">-</span><span class="fl">0.15</span>, <span class="fl">1.05</span>)</span>
+<span id="cb11-35"><a href="#cb11-35" aria-hidden="true" tabindex="-1"></a>ax.set_ylim(top <span class="op">=</span> <span class="fl">0.9</span>)</span>
+<span id="cb11-36"><a href="#cb11-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-37"><a href="#cb11-37" aria-hidden="true" tabindex="-1"></a>plt.legend(bbox_to_anchor <span class="op">=</span> (<span class="fl">0.025</span>, <span class="fl">0.62</span>, <span class="fl">0.5</span>, <span class="fl">0.5</span>), ncol <span class="op">=</span> <span class="dv">4</span>,</span>
+<span id="cb11-38"><a href="#cb11-38" aria-hidden="true" tabindex="-1"></a>            handlelength <span class="op">=</span> <span class="fl">0.7</span>, frameon <span class="op">=</span> <span class="va">False</span>)</span>
+<span id="cb11-39"><a href="#cb11-39" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><br></p>
+</section>
+</section>
+<section id="focus" class="level3">
+<h3 class="anchored" data-anchor-id="focus">Focus</h3>
+<p>This palette should be used when you want to highlight specific elements to help users understand the information.</p>
+<table style="width:80%">
+<tbody><tr>
+<th style="background-color: #D9EDF7">
+Colour name
+</th>
+<th style="background-color: #D9EDF7">
+Hex code
+</th>
+<th style="background-color: #D9EDF7">
+RGB code
+</th>
+<th style="background-color: #D9EDF7">
+Colour fill
+</th>
+</tr>
+<tr>
+<td>
+Dark blue
+</td>
+<td>
+#12436D
+</td>
+<td>
+(18, 67, 109)
+</td>
+<td style="background-color: #12436D; border-bottom: 1px solid white">
+</td>
+</tr>
+<tr>
+<td>
+Grey
+</td>
+<td>
+#BFBFBF
+</td>
+<td>
+(191, 191, 191)
+</td>
+<td style="background-color: #BFBFBF; border-bottom: 1px solid white">
+</td>
+</tr>
+</tbody></table>
+<p><br></p>
+<section id="figure-5-line-chart-using-the-focus-colour-palette" class="level4">
+<h4 class="anchored" data-anchor-id="figure-5-line-chart-using-the-focus-colour-palette">Figure 5: Line chart using the Focus colour palette</h4>
+<p><img src="figures/graph5.svg" class="img-fluid"></p>
+<p>This line chart uses data based on the <a href="https://www.kaggle.com/datasets/iamsouravbanerjee/world-population-dataset?resource=download">world population dataset</a>. All lines are light grey, except the line showing the time series for India. Data is available with the py_af_colours package.</p>
+<div class="cell" data-execution_count="9">
+<div class="sourceCode" id="cb12"><pre class="sourceCode python cell-code code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> py_af_colours <span class="im">import</span> af_colours</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>world_population <span class="op">=</span> pd.read_csv(<span class="st">"data\world_population_in_billions.csv"</span>)</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>top_five <span class="op">=</span> world_population[<span class="dv">0</span>:<span class="dv">5</span>]</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>top_five_data <span class="op">=</span> top_five.set_index(<span class="st">"Country/Territory"</span>)</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>focus_country <span class="op">=</span> <span class="st">"India"</span></span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>focus_colours <span class="op">=</span> af_colours(<span class="st">"focus"</span>)</span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>focus_index <span class="op">=</span> top_five.index[top_five[<span class="st">"Country/Territory"</span>] </span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>                                  <span class="op">==</span> focus_country].tolist()</span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>focus_palette <span class="op">=</span> <span class="bu">int</span>(top_five_data.shape[<span class="dv">0</span>]) <span class="op">*</span> [focus_colours[<span class="dv">1</span>]]</span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>focus_palette[focus_index[<span class="dv">0</span>]] <span class="op">=</span> focus_colours[<span class="dv">0</span>]</span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a>focus <span class="op">=</span> sns.color_palette(focus_palette)</span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots()</span>
+<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a>sns.lineplot(data <span class="op">=</span> top_five_data.transpose(), </span>
+<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a>                    palette <span class="op">=</span> focus,</span>
+<span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a>                    dashes <span class="op">=</span> <span class="va">False</span>,</span>
+<span id="cb12-24"><a href="#cb12-24" aria-hidden="true" tabindex="-1"></a>                    legend <span class="op">=</span> <span class="va">False</span>)</span>
+<span id="cb12-25"><a href="#cb12-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-26"><a href="#cb12-26" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">"Year"</span>)</span>
+<span id="cb12-27"><a href="#cb12-27" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">"Population (Billion)"</span>, rotation <span class="op">=</span> <span class="dv">0</span>)</span>
+<span id="cb12-28"><a href="#cb12-28" aria-hidden="true" tabindex="-1"></a>ax.yaxis.set_label_coords(<span class="op">-</span><span class="fl">0.15</span>, <span class="fl">1.05</span>)</span>
+<span id="cb12-29"><a href="#cb12-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-30"><a href="#cb12-30" aria-hidden="true" tabindex="-1"></a>ax.grid(visible <span class="op">=</span> <span class="va">True</span>, which <span class="op">=</span> <span class="st">"both"</span>, axis <span class="op">=</span> <span class="st">"y"</span>, color <span class="op">=</span> <span class="st">"#D6D6D6"</span>)</span>
+<span id="cb12-31"><a href="#cb12-31" aria-hidden="true" tabindex="-1"></a>ax.set_axisbelow(<span class="va">True</span>)</span>
+<span id="cb12-32"><a href="#cb12-32" aria-hidden="true" tabindex="-1"></a>ax.set_frame_on(<span class="va">False</span>)</span>
+<span id="cb12-33"><a href="#cb12-33" aria-hidden="true" tabindex="-1"></a>ax.tick_params(color <span class="op">=</span> <span class="st">"#D6D6D6"</span>)</span>
+<span id="cb12-34"><a href="#cb12-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-35"><a href="#cb12-35" aria-hidden="true" tabindex="-1"></a>x_coord <span class="op">=</span> <span class="bu">len</span>(top_five.columns) <span class="op">-</span> <span class="dv">2</span></span>
+<span id="cb12-36"><a href="#cb12-36" aria-hidden="true" tabindex="-1"></a>y_coord <span class="op">=</span> []</span>
+<span id="cb12-37"><a href="#cb12-37" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> n <span class="kw">in</span> np.arange(top_five_data.shape[<span class="dv">0</span>]):</span>
+<span id="cb12-38"><a href="#cb12-38" aria-hidden="true" tabindex="-1"></a>    y <span class="op">=</span> top_five_data.values[n][<span class="op">-</span><span class="dv">1</span>]</span>
+<span id="cb12-39"><a href="#cb12-39" aria-hidden="true" tabindex="-1"></a>    y_coord.append(y)</span>
+<span id="cb12-40"><a href="#cb12-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-41"><a href="#cb12-41" aria-hidden="true" tabindex="-1"></a>ax.annotate(<span class="st">" China"</span>, xy <span class="op">=</span> (x_coord, y_coord[<span class="dv">0</span>]))</span>
+<span id="cb12-42"><a href="#cb12-42" aria-hidden="true" tabindex="-1"></a>ax.annotate(<span class="st">" India"</span>, xy <span class="op">=</span> (x_coord, y_coord[<span class="dv">1</span>] <span class="op">-</span> <span class="fl">0.04</span>))</span>
+<span id="cb12-43"><a href="#cb12-43" aria-hidden="true" tabindex="-1"></a>ax.annotate(<span class="st">" United States"</span>, xy <span class="op">=</span> (x_coord, y_coord[<span class="dv">2</span>] <span class="op">+</span> <span class="fl">0.01</span>))</span>
+<span id="cb12-44"><a href="#cb12-44" aria-hidden="true" tabindex="-1"></a>ax.annotate(<span class="st">" Indonesia"</span>, xy <span class="op">=</span> (x_coord, y_coord[<span class="dv">3</span>]))</span>
+<span id="cb12-45"><a href="#cb12-45" aria-hidden="true" tabindex="-1"></a>ax.annotate(<span class="st">" Pakistan"</span>, xy <span class="op">=</span> (x_coord, y_coord[<span class="dv">4</span>] <span class="op">-</span> <span class="fl">0.02</span>))</span>
+<span id="cb12-46"><a href="#cb12-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-47"><a href="#cb12-47" aria-hidden="true" tabindex="-1"></a>ax.set_xlim(left <span class="op">=</span> <span class="dv">0</span>, right <span class="op">=</span> (<span class="bu">len</span>(top_five.columns) <span class="op">-</span> <span class="dv">2</span>))</span>
+<span id="cb12-48"><a href="#cb12-48" aria-hidden="true" tabindex="-1"></a>ax.set_ylim(bottom <span class="op">=</span> <span class="op">-</span><span class="fl">0.01</span>, top <span class="op">=</span> <span class="fl">1.6</span>)</span>
+<span id="cb12-49"><a href="#cb12-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-50"><a href="#cb12-50" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb12-51"><a href="#cb12-51" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><br></p>
 </section>
 </section>
 </section>
 <section id="maintenance" class="level2">
-<h2 class="anchored" data-anchor-id="maintenance">Maintenance<a name="maintenance"></a></h2>
+<h2 class="anchored" data-anchor-id="maintenance">Maintenance</h2>
 <p>The package includes a function hex_to_rgb for generating the rgb color codes. In the event the Analysis Function colour palettes change, only the hex codes need be updated.</p>
 </section>
 </main>

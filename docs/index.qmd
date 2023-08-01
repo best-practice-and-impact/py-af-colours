@@ -21,9 +21,13 @@ import pandas as pd
 
 </br>
 
-## This guidance is in draft and remains subject to review and approval.
+This page contains the documentation for the Python package of the Analysis 
+Function’s colour palettes. The [py_af_colours package](https://github.com/best-practice-and-impact/py-af-colours) aims to maintain the 
+accessibility of graph outputs generated in Python across the Analysis 
+Function by simplifying the process by which users can access the 
+standardised colour palettes.
 
-</br>
+This guidance is in draft and remains subject to review and approval.
 
 ## Requirements
 To run af_colours in Python, your system requires the following installations:
@@ -41,9 +45,9 @@ To run af_colours in Python, your system requires the following installations:
 pip install -e <path to py_af_colours folder>
 ```
 
-This process may change when py_af_colours goes live on artifactory.
+This process may change when py_af_colours goes live on PyPI and artifactory.
 
-## How to obtain colours<a name="howtoobtain"></a>
+## How to obtain colours
 In your python environment, import the py_af_colours package:
 
 ```{python}
@@ -53,8 +57,9 @@ from py_af_colours import af_colours
 The af_colours function takes three arguments: palette, colour_format, 
 and number_of_colours.
 
+
 - palette is a required parameter, chosen by the user based on the 
-[Analysis Function colour guidance](https://analysisfunction.civilservice.gov.uk/policy-store/codes-for-accessible-colours/).
+[Analysis Function colour guidance](https://analysisfunction.civilservice.gov.uk/policy-store/data-visualisation-colours-in-charts/).
 It takes one of four possible string values corresponding to the options:
 
     - "duo"  
@@ -85,14 +90,168 @@ To return a five colour categorical palette as rgb codes:
 af_colours("categorical", "rgb", 5)
 ```
 
-<br>
-
 See also that a warning is given for colours lists greater than four to let the user know that for best practice, it is
 preferable to use a limit of four categories.
 
 
-## Application<a name="application"></a>
+## Application
+### Categorical
+This palette is for data which can be divided into groups or categories by using names or labels.
+
+<table style="width:80%">
+  <tr>
+    <th style="background-color: #D9EDF7">Colour name </th>
+    <th style="background-color: #D9EDF7">Hex code </th>
+    <th style="background-color: #D9EDF7">RGB code </th>
+    <th style="background-color: #D9EDF7">Colour fill </th>
+  </tr>
+  <tr>
+    <td>Dark blue </td>
+    <td>#12436D </td>
+    <td>(18, 67, 109) </td>
+    <td style="background-color: #12436D; border-bottom: 1px solid white"></td>    
+  </tr>
+  <tr>
+    <td>Turquoise </td>
+    <td>#28A197 </td>
+    <td>(40, 161, 151) </td>
+    <td style="background-color: #28A197; border-bottom: 1px solid white"></td>    
+  </tr>
+  <tr>
+    <td>Dark pink </td>
+    <td>#801650 </td>
+    <td>(128, 22, 80) </td>
+    <td style="background-color: #801650; border-bottom: 1px solid white"></td>    
+  </tr>
+  <tr>
+    <td>Orange </td>
+    <td>#F46A25 </td>
+    <td>(244, 106, 37) </td>
+    <td style="background-color: #F46A25; border-bottom: 1px solid white"></td>    
+  </tr>
+  <tr>
+    <td>Dark grey </td>
+    <td>#3D3D3D </td>
+    <td>(61, 61, 61) </td>
+    <td style="background-color: #3D3D3D; border-bottom: 1px solid white"></td>    
+  </tr>
+  <tr>
+    <td>Light purple </td>
+    <td>#A285D1 </td>
+    <td>(162, 133, 209) </td>
+    <td style="background-color: #A285D1; border-bottom: 1px solid white"></td>    
+  </tr>
+</table>
+
+<br>
+
+#### Figure 1: Bar chart using the Categorical colour palette
+
+![](figures/graph1.svg)
+
+This clustered bar chart uses data based on the <a href="https://www.kaggle.com/datasets/iamsouravbanerjee/world-population-dataset?resource=download">world population dataset</a> and 
+shows data for four countries over five years. The legend is presented in the same order as the bars in the clusters. Data is available with the py_af_colours package.
+
+```{python}
+#| eval: false
+
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+from py_af_colours import af_colours
+
+world_population = pd.read_csv("data\world_population_in_billions.csv")
+top_four = world_population[0:4]
+top_four_data = top_four.set_index("Country/Territory")
+years_of_interest  = top_four_data.columns.tolist()[-4:]
+
+categorical = sns.color_palette(af_colours("categorical", "hex", 4))
+
+population_over_time = pd.melt(top_four_data.reset_index(),
+                                   id_vars = "Country/Territory",
+                                   value_vars = years_of_interest,
+                                   var_name = "Year",
+                                   value_name = "Population")
+
+fig, ax = plt.subplots()
+
+sns.barplot(x = "Year", y = "Population",
+            data = population_over_time,
+            zorder = 2, hue = "Country/Territory",
+            edgecolor = "white",
+            palette = categorical)
+
+plt.box(False)
+
+ax.set_ylabel("Population (Billion)", rotation = 0)
+ax.yaxis.set_label_coords(-0.15, 1.05)
+plt.grid(visible = True, which = "both", axis = "y", color = "#D6D6D6")
+ax.tick_params(color = "#D6D6D6")
+ax.set_ylim(bottom = -0.01, top = 1.6)
+plt.legend(frameon = False, loc = "upper left", ncol = 4,
+            handlelength = 0.7, bbox_to_anchor = (0, 0.62, 0.5, 0.5))
+
+plt.show()
+```
+
+</br>
+
+#### Figure 2: Pie chart using the Categorical colour palette
+
+![](figures/graph2.svg)
+
+This a pie chart showing the proportional populations of the four most populous countries, 
+China, India, the United States, and Indonesia. This data is from the <a href="https://www.kaggle.com/datasets/iamsouravbanerjee/world-population-dataset?resource=download">world population dataset</a>, 
+available with the py_af_colours package.
+
+```{python}
+#| eval: false
+
+import pandas as pd
+import seaborn as sns
+import numpy as np
+import matplotlib.pyplot as plt
+from py_af_colours import af_colours
+
+world_population = pd.read_csv("data\world_population_in_billions.csv")
+top_four = world_population[0:4]
+top_four_data =top_four.set_index("Country/Territory")
+most_recent = top_four_data.iloc[:,-1:]
+data = most_recent.reset_index()
+countries = top_four["Country/Territory"].values
+
+colours_list = af_colours("categorical", "hex", 4)
+categorical = sns.color_palette(colours_list)
+
+percentage_labels = []
+for n in np.arange(most_recent.shape[0]):
+    percentage = 100 * ((most_recent.iloc[n].values.item())
+                    /(most_recent.values.sum().item()))
+    value = round(percentage, 1)
+    country = str(data["Country/Territory"].iloc[n])
+    percentage_labels.append((country + " " + str(value) + "%"))
+
+ax = most_recent.plot.pie(x = "Country/Territory", y = "2022",
+                          labels = percentage_labels,
+                          legend = False,
+                          colors = categorical,
+                          pctdistance = 1,
+                          counterclock = False,
+                          startangle = 90,
+                          wedgeprops = {"edgecolor": "white",
+                                        "linewidth": 1.5,
+                                        "antialiased": True})
+ax.set_ylabel(None)
+ax.set_title("Population of Four Most Populous Countries in 2022")
+
+plt.show()
+
+```
+
+</br>
+
 ### Duo
+This palette is for categorical data when there are two categories.
 
 <table style="width:80%">
   <tr>
@@ -117,51 +276,9 @@ preferable to use a limit of four categories.
 
 <br>
 
-#### Figure 1: Line chart using the Duo colour palette
+#### Figure 3: Line chart using the Duo colour palette
 
-```{python}
-#| echo: false
-
-import pandas as pd
-import seaborn as sns
-import matplotlib.pyplot as plt
-from py_af_colours import af_colours
-
-world_population = pd.read_csv("data\world_population_in_billions.csv")
-top_two_data = world_population.set_index("Country/Territory")[0:2]
-
-duo = sns.color_palette(af_colours("duo"))
-
-fig, ax = plt.subplots()
-
-sns.lineplot(data = (top_two_data.transpose()), 
-                     palette = duo,
-                     dashes = False,
-                     legend = False)
-
-ax.set_xlabel("Year")
-ax.set_ylabel("Population (Billion)", rotation = 0)
-ax.yaxis.set_label_coords(-0.15, 1.05)
-
-ax.grid(visible = True, which = "both", axis = "y", color = "#BEBEBE")
-ax.set_axisbelow(True)
-ax.set_frame_on(False)
-ax.tick_params(color = "#D6D6D6")
-
-x_label_coord = len(top_two_data.columns) - 1
-y_label_coord1 = top_two_data.values[0][-1] + 0.03
-y_label_coord2 = top_two_data.values[1][-1] - 0.05
-
-ax.annotate(" China", xy = (x_label_coord, y_label_coord1))
-ax.annotate(" India", xy = (x_label_coord, y_label_coord2))
-
-ax.set_xlim(left = 0, right = len(top_two_data.columns) - 1)
-ax.set_ylim(bottom = -0.01, top = 1.6)
-
-plt.tight_layout()
-plt.show()
-
-```
+![](figures/graph3.svg)
 
 This line chart has two lines, one dark blue and one orange. This line chart uses data based on
 the <a href="https://www.kaggle.com/datasets/iamsouravbanerjee/world-population-dataset?resource=download">world population dataset</a>.
@@ -214,7 +331,100 @@ plt.show()
 <br>
 
 
+### Sequential
+This palette is for data where the order of the data is meaningful, such as for age groups.
+
+<table style="width:80%">
+  <tr>
+    <th style="background-color: #D9EDF7">Colour name </th>
+    <th style="background-color: #D9EDF7">Hex code </th>
+    <th style="background-color: #D9EDF7">RGB code </th>
+    <th style="background-color: #D9EDF7">Colour fill </th>
+  </tr>
+  <tr>
+    <td>Dark blue </td>
+    <td>#12436D </td>
+    <td>(18, 67, 109) </td>
+    <td style="background-color: #12436D; border-bottom: 1px solid white"></td>    
+  </tr>
+  <tr>
+    <td>Mid blue </td>
+    <td>#2073BC </td>
+    <td>(32, 115, 188) </td>
+    <td style="background-color: #2073BC; border-bottom: 1px solid white"></td>    
+  </tr>
+  <tr>
+    <td>Light blue </td>
+    <td>#6BACE6 </td>
+    <td>(107, 172, 230) </td>
+    <td style="background-color: #6BACE6; border-bottom: 1px solid white"></td>    
+  </tr>
+</table>
+
+<br>
+
+
+#### Figure 4: Bar chart using the Sequential colour palette
+
+![](figures/graph4.svg)
+
+This clustered bar chart uses data based on the <a href="https://www.kaggle.com/datasets/elmoallistair/population-by-age-group-2021">population by age dataset</a> and 
+shows data for five countries. The legend is presented in the same order as the bars in the clusters. Data is available with the py_af_colours package.
+
+Distinct from previous examples, this section features how to use the rgb list returned by af_colours. It is generally easier to use hex codes, 
+but this example is included for completeness. The end result is the same.
+
+The spacing in this example is to account for the bar borders, which are required for accessibility purposes.
+
+```{python}
+#| eval: false
+
+import numpy as np
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+from py_af_colours import af_colours
+
+world_population_by_age = pd.read_csv("data\population_by_age.csv")
+top_five_age = world_population_by_age[0:5]
+top_five_age_data = top_five_age.set_index(top_five_age["Country"])
+countries = top_five_age["Country"].values
+
+fig, ax = plt.subplots()
+
+x_spacing = np.arange(top_five_age.shape[0])
+colours = af_colours("sequential", "rgb")
+sequential = [tuple(t / 255 for t in x) for x in colours]
+
+plt.bar(x_spacing - 0.25, top_five_age["Under 25"].values,
+        width = 0.19, zorder = 2, edgecolor = sequential[0],
+        label = "0 to 25", color = sequential[0])
+plt.bar(x_spacing, top_five_age["25-64 years"].values,
+        width = 0.19, zorder = 2, edgecolor = sequential[0],
+        label = "25 to 64", color=sequential[1])
+plt.bar(x_spacing + 0.25, top_five_age["65+"].values,
+        width = 0.19, zorder = 2, edgecolor = sequential[0],
+        label = "65+", color = sequential[2])
+
+plt.box(False)
+plt.grid(visible = True, which = "both", axis = "y", color = "#D6D6D6") 
+plt.xticks(x_spacing, top_five_age["Country"].values)
+plt.tick_params(color = "white")
+ax.set_xlabel("Country")
+ax.set_ylabel("Population (Billion)", rotation = 0)
+ax.yaxis.set_label_coords(-0.15, 1.05)
+ax.set_ylim(top = 0.9)
+
+plt.legend(bbox_to_anchor = (0.025, 0.62, 0.5, 0.5), ncol = 4,
+            handlelength = 0.7, frameon = False)
+plt.show()
+
+```
+
+</br>
+
 ### Focus
+This palette should be used when you want to highlight specific elements to help users understand the information.
 
 <table style="width:80%">
   <tr>
@@ -239,64 +449,9 @@ plt.show()
 
 <br>
 
-#### Figure 2: Line chart using the Focus colour palette
+#### Figure 5: Line chart using the Focus colour palette
 
-```{python}
-#| echo: false
-
-import pandas as pd
-import numpy as np
-import seaborn as sns
-import matplotlib.pyplot as plt
-from py_af_colours import af_colours
-
-world_population = pd.read_csv("data\world_population_in_billions.csv")
-top_five = world_population[0:5]
-top_five_data = top_five.set_index("Country/Territory")
-
-focus_country = "India"
-focus_colours = af_colours("focus")
-focus_index = top_five.index[top_five["Country/Territory"] 
-                                  == focus_country].tolist()
-focus_palette = int(top_five_data.shape[0]) * [focus_colours[1]]
-focus_palette[focus_index[0]] = focus_colours[0]
-focus = sns.color_palette(focus_palette)
-
-fig, ax = plt.subplots()
-
-sns.lineplot(data = top_five_data.transpose(), 
-                    palette = focus,
-                    dashes = False,
-                    legend = False)
-
-ax.set_xlabel("Year")
-ax.set_ylabel("Population (Billion)", rotation = 0)
-ax.yaxis.set_label_coords(-0.15, 1.05)
-
-ax.grid(visible = True, which = "both", axis = "y", color = "#D6D6D6")
-ax.set_axisbelow(True)
-ax.set_frame_on(False)
-ax.tick_params(color = "#D6D6D6")
-
-x_coord = len(top_five.columns) - 2
-y_coord = []
-for n in np.arange(top_five_data.shape[0]):
-    y = top_five_data.values[n][-1]
-    y_coord.append(y)
-
-ax.annotate(" China", xy = (x_coord, y_coord[0]))
-ax.annotate(" India", xy = (x_coord, y_coord[1] - 0.04))
-ax.annotate(" United States", xy = (x_coord, y_coord[2] + 0.01))
-ax.annotate(" Indonesia", xy = (x_coord, y_coord[3]))
-ax.annotate(" Pakistan", xy = (x_coord, y_coord[4] - 0.02))
-
-ax.set_xlim(left = 0, right = (len(top_five.columns) - 2))
-ax.set_ylim(bottom = -0.01, top = 1.6)
-
-plt.tight_layout()
-plt.show()
-
-```
+![](figures/graph5.svg)
 
 This line chart uses data based on the <a href="https://www.kaggle.com/datasets/iamsouravbanerjee/world-population-dataset?resource=download">world population dataset</a>. 
 All lines are light grey, except the line showing the time series for India. Data is available with the py_af_colours package.
@@ -360,381 +515,6 @@ plt.show()
 
 <br>
 
-
-### Sequential
-
-<table style="width:80%">
-  <tr>
-    <th style="background-color: #D9EDF7">Colour name </th>
-    <th style="background-color: #D9EDF7">Hex code </th>
-    <th style="background-color: #D9EDF7">RGB code </th>
-    <th style="background-color: #D9EDF7">Colour fill </th>
-  </tr>
-  <tr>
-    <td>Dark blue </td>
-    <td>#12436D </td>
-    <td>(18, 67, 109) </td>
-    <td style="background-color: #12436D; border-bottom: 1px solid white"></td>    
-  </tr>
-  <tr>
-    <td>Mid blue </td>
-    <td>#2073BC </td>
-    <td>(32, 115, 188) </td>
-    <td style="background-color: #2073BC; border-bottom: 1px solid white"></td>    
-  </tr>
-  <tr>
-    <td>Light blue </td>
-    <td>#6BACE6 </td>
-    <td>(107, 172, 230) </td>
-    <td style="background-color: #6BACE6; border-bottom: 1px solid white"></td>    
-  </tr>
-</table>
-
-<br>
-
-
-#### Figure 3: Bar chart using the Sequential colour palette
-
-```{python}
-#| echo: false
-
-import pandas as pd
-import seaborn as sns
-import matplotlib.pyplot as plt
-from py_af_colours import af_colours
-
-world_population_by_age = pd.read_csv("data\population_by_age.csv")
-top_five_age = world_population_by_age[0:5]
-top_five_age_data = top_five_age.set_index("Country")
-countries = top_five_age["Country"].values
-
-fig, ax = plt.subplots()
-
-x_spacing = np.arange(top_five_age.shape[0])
-colours = af_colours("sequential", "rgb")
-sequential = [tuple(t / 255 for t in x) for x in colours]
-
-plt.bar(x_spacing - 0.25, top_five_age["Under 25"].values,
-        width = 0.19, zorder = 2, edgecolor = sequential[0],
-        label = "0 to 25", color = sequential[0])
-plt.bar(x_spacing, top_five_age["25-64 years"].values,
-        width = 0.19, zorder = 2, edgecolor = sequential[0],
-        label = "25 to 64", color=sequential[1])
-plt.bar(x_spacing + 0.25, top_five_age["65+"].values,
-        width = 0.19, zorder = 2, edgecolor = sequential[0],
-        label = "65+", color = sequential[2])
-
-plt.box(False)
-plt.grid(visible = True, which = "both", axis = "y", color = "#D6D6D6") 
-plt.xticks(x_spacing, top_five_age["Country"].values)
-plt.tick_params(color = "white")
-ax.set_xlabel("Country")
-ax.set_ylabel("Population (Billion)", rotation = 0)
-ax.yaxis.set_label_coords(-0.15, 1.05)
-ax.set_ylim(top = 0.9)
-
-plt.legend(bbox_to_anchor = (0.025, 0.62, 0.5, 0.5), ncol = 4,
-            handlelength = 0.7, frameon = False)
-plt.show()
-
-```
-
-This clustered bar chart uses data based on the <a href="https://www.kaggle.com/datasets/elmoallistair/population-by-age-group-2021">population by age dataset</a> and 
-shows data for five countries. The legend is presented in the same order as the bars in the clusters. Data is available with the py_af_colours package.
-
-Distinct from previous examples, this section features how to use the rgb list returned by af_colours. It is generally easier to use hex codes, 
-but this example is included for completeness. The end result is the same.
-
-The spacing in this example is to account for the bar borders, which are required for accessibility purposes.
-
-```{python}
-#| eval: false
-
-import pandas as pd
-import seaborn as sns
-import matplotlib.pyplot as plt
-from py_af_colours import af_colours
-
-world_population_by_age = pd.read_csv("data\population_by_age.csv")
-top_five_age = world_population_by_age[0:5]
-top_five_age_data = top_five_age.set_index(top_five_age["Country"])
-countries = top_five_age["Country"].values
-
-fig, ax = plt.subplots()
-
-x_spacing = np.arange(top_five_age.shape[0])
-colours = af_colours("sequential", "rgb")
-sequential = [tuple(t / 255 for t in x) for x in colours]
-
-plt.bar(x_spacing - 0.25, top_five_age["Under 25"].values,
-        width = 0.19, zorder = 2, edgecolor = sequential[0],
-        label = "0 to 25", color = sequential[0])
-plt.bar(x_spacing, top_five_age["25-64 years"].values,
-        width = 0.19, zorder = 2, edgecolor = sequential[0],
-        label = "25 to 64", color=sequential[1])
-plt.bar(x_spacing + 0.25, top_five_age["65+"].values,
-        width = 0.19, zorder = 2, edgecolor = sequential[0],
-        label = "65+", color = sequential[2])
-
-plt.box(False)
-plt.grid(visible = True, which = "both", axis = "y", color = "#D6D6D6") 
-plt.xticks(x_spacing, top_five_age["Country"].values)
-plt.tick_params(color = "white")
-ax.set_xlabel("Country")
-ax.set_ylabel("Population (Billion)", rotation = 0)
-ax.yaxis.set_label_coords(-0.15, 1.05)
-ax.set_ylim(top = 0.9)
-
-plt.legend(bbox_to_anchor = (0.025, 0.62, 0.5, 0.5), ncol = 4,
-            handlelength = 0.7, frameon = False)
-plt.show()
-
-```
-
-
-<br>
-
-### Categorical
-
-<table style="width:80%">
-  <tr>
-    <th style="background-color: #D9EDF7">Colour name </th>
-    <th style="background-color: #D9EDF7">Hex code </th>
-    <th style="background-color: #D9EDF7">RGB code </th>
-    <th style="background-color: #D9EDF7">Colour fill </th>
-  </tr>
-  <tr>
-    <td>Dark blue </td>
-    <td>#12436D </td>
-    <td>(18, 67, 109) </td>
-    <td style="background-color: #12436D; border-bottom: 1px solid white"></td>    
-  </tr>
-  <tr>
-    <td>Turquoise </td>
-    <td>#28A197 </td>
-    <td>(40, 161, 151) </td>
-    <td style="background-color: #28A197; border-bottom: 1px solid white"></td>    
-  </tr>
-  <tr>
-    <td>Dark pink </td>
-    <td>#801650 </td>
-    <td>(128, 22, 80) </td>
-    <td style="background-color: #801650; border-bottom: 1px solid white"></td>    
-  </tr>
-  <tr>
-    <td>Orange </td>
-    <td>#F46A25 </td>
-    <td>(244, 106, 37) </td>
-    <td style="background-color: #F46A25; border-bottom: 1px solid white"></td>    
-  </tr>
-  <tr>
-    <td>Dark grey </td>
-    <td>#3D3D3D </td>
-    <td>(61, 61, 61) </td>
-    <td style="background-color: #3D3D3D; border-bottom: 1px solid white"></td>    
-  </tr>
-  <tr>
-    <td>Light purple </td>
-    <td>#A285D1 </td>
-    <td>(162, 133, 209) </td>
-    <td style="background-color: #A285D1; border-bottom: 1px solid white"></td>    
-  </tr>
-</table>
-
-<br>
-
-The following charts use data based on the <a href="https://www.kaggle.com/datasets/iamsouravbanerjee/world-population-dataset?resource=download">world population dataset</a>. 
-Data is available with the py_af_colours package.
-
-#### Figure 4: Bar chart using the Categorical colour palette
-
-```{python}
-#| echo: false
-
-import pandas as pd
-import seaborn as sns
-import matplotlib.pyplot as plt
-from py_af_colours import af_colours
-
-world_population = pd.read_csv("data\world_population_in_billions.csv")
-top_four = world_population[0:4]
-top_four_data = top_four.set_index("Country/Territory")
-
-years_of_interest  = top_four_data.columns.tolist()[-4:]
-
-categorical = sns.color_palette(af_colours("categorical", "hex", 4))
-
-population_over_time = pd.melt(top_four_data.reset_index(),
-                                   id_vars = "Country/Territory",
-                                   value_vars = years_of_interest,
-                                   var_name = "Year",
-                                   value_name = "Population")
-
-fig, ax = plt.subplots()
-
-sns.barplot(x = "Year", y = "Population",
-            data = population_over_time,
-            zorder = 2, hue = "Country/Territory",
-            edgecolor = "white",
-            palette = categorical)
-
-plt.box(False)
-
-ax.set_ylabel("Population (Billion)", rotation = 0)
-ax.yaxis.set_label_coords(-0.15, 1.05)
-plt.grid(visible = True, which = "both", axis = "y", color = "#D6D6D6")
-ax.tick_params(color = "#D6D6D6")
-ax.set_ylim(bottom = -0.01, top = 1.6)
-plt.legend(frameon = False, loc = "upper left", ncol = 4,
-            handlelength = 0.7, bbox_to_anchor = (0, 0.62, 0.5, 0.5))
-
-plt.show()
-
-```
-
-```{python}
-#| eval: false
-
-import pandas as pd
-import seaborn as sns
-import matplotlib.pyplot as plt
-from py_af_colours import af_colours
-
-world_population = pd.read_csv("data\world_population_in_billions.csv")
-top_four = world_population[0:4]
-top_four_data = top_four.set_index("Country/Territory")
-
-years_of_interest  = top_four_data.columns.tolist()[-4:]
-
-categorical = sns.color_palette(af_colours("categorical", "hex", 4))
-
-population_over_time = pd.melt(top_four_data.reset_index(),
-                                   id_vars = "Country/Territory",
-                                   value_vars = years_of_interest,
-                                   var_name = "Year",
-                                   value_name = "Population")
-
-fig, ax = plt.subplots()
-
-sns.barplot(x = "Year", y = "Population",
-            data = population_over_time,
-            zorder = 2, hue = "Country/Territory",
-            edgecolor = "white",
-            palette = categorical)
-
-plt.box(False)
-
-ax.set_ylabel("Population (Billion)", rotation = 0)
-ax.yaxis.set_label_coords(-0.15, 1.05)
-plt.grid(visible = True, which = "both", axis = "y", color = "#D6D6D6")
-ax.tick_params(color = "#D6D6D6")
-ax.set_ylim(bottom = -0.01, top = 1.6)
-plt.legend(frameon = False, loc = "upper left", ncol = 4,
-            handlelength = 0.7, bbox_to_anchor = (0, 0.62, 0.5, 0.5))
-
-plt.show()
-
-```
-
-
-<br>
-
-#### Figure 5: Pie chart using the Categorical colour palette
-
-```{python}
-#| echo: false
-
-import pandas as pd
-import seaborn as sns
-import numpy as np
-import matplotlib.pyplot as plt
-from py_af_colours import af_colours
-
-world_population = pd.read_csv("data\world_population_in_billions.csv")
-top_four = world_population[0:4]
-top_four_data =top_four.set_index("Country/Territory")
-most_recent = top_four_data.iloc[:,-1:]
-data = most_recent.reset_index()
-countries = top_four["Country/Territory"].values
-
-colours_list = af_colours("categorical", "hex", 4)
-categorical = sns.color_palette(colours_list)
-
-percentage_labels = []
-for n in np.arange(most_recent.shape[0]):
-    percentage = 100 * ((most_recent.iloc[n].values.item())
-                    /(most_recent.values.sum().item()))
-    value = round(percentage, 1)
-    country = str(data["Country/Territory"].iloc[n])
-    percentage_labels.append((country + " " + str(value) + "%"))
-
-ax = most_recent.plot.pie(x = "Country/Territory", y = "2022",
-                          labels = percentage_labels,
-                          legend = False,
-                          colors = categorical,
-                          pctdistance = 1,
-                          counterclock = False,
-                          startangle = 90,
-                          wedgeprops = {"edgecolor": "white",
-                                        "linewidth": 1.5,
-                                        "antialiased": True})
-ax.set_ylabel(None)
-ax.set_title("Population of Four Most Populous Countries in 2022")
-
-plt.show()
-
-```
-
-This a pie chart showing the proportional populations of the four most
-populous countries, China, India, the United States, and Indonesia.
-
-```{python}
-#| eval: false
-
-import pandas as pd
-import seaborn as sns
-import numpy as np
-import matplotlib.pyplot as plt
-from py_af_colours import af_colours
-
-world_population = pd.read_csv("data\world_population_in_billions.csv")
-top_four = world_population[0:4]
-top_four_data =top_four.set_index("Country/Territory")
-most_recent = top_four_data.iloc[:,-1:]
-data = most_recent.reset_index()
-countries = top_four["Country/Territory"].values
-
-colours_list = af_colours("categorical", "hex", 4)
-categorical = sns.color_palette(colours_list)
-
-percentage_labels = []
-for n in np.arange(most_recent.shape[0]):
-    percentage = 100 * ((most_recent.iloc[n].values.item())
-                    /(most_recent.values.sum().item()))
-    value = round(percentage, 1)
-    country = str(data["Country/Territory"].iloc[n])
-    percentage_labels.append((country + " " + str(value) + "%"))
-
-ax = most_recent.plot.pie(x = "Country/Territory", y = "2022",
-                          labels = percentage_labels,
-                          legend = False,
-                          colors = categorical,
-                          pctdistance = 1,
-                          counterclock = False,
-                          startangle = 90,
-                          wedgeprops = {"edgecolor": "white",
-                                        "linewidth": 1.5,
-                                        "antialiased": True})
-ax.set_ylabel(None)
-ax.set_title("Population of Four Most Populous Countries in 2022")
-
-plt.show()
-
-```
-
-
-<br>
-
-## Maintenance<a name="maintenance"></a>
+## Maintenance
 The package includes a function hex_to_rgb for generating the rgb color codes.
 In the event the Analysis Function colour palettes change, only the hex codes need be updated.
