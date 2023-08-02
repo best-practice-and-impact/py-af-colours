@@ -518,3 +518,4 @@ plt.show()
 ## Maintenance
 The package includes a function hex_to_rgb for generating the rgb color codes.
 In the event the Analysis Function colour palettes change, only the hex codes need be updated.
+This guidance page will undergo updates as changes to the package are rolled out.
