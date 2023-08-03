@@ -147,7 +147,7 @@ This palette is for data which can be divided into groups or categories by using
 
 #### Figure 1: Bar chart using the Categorical colour palette
 
-![](figures/graph1.svg)
+![](figures/figure1.svg)
 
 This clustered bar chart uses data based on the <a href="https://www.kaggle.com/datasets/iamsouravbanerjee/world-population-dataset?resource=download">world population dataset</a> and 
 shows data for four countries over five years. The legend is presented in the same order as the bars in the clusters. Data is available with the py_af_colours package.
@@ -198,7 +198,7 @@ plt.show()
 
 #### Figure 2: Pie chart using the Categorical colour palette
 
-![](figures/graph2.svg)
+![](figures/figure2.svg)
 
 This a pie chart showing the proportional populations of the four most populous countries, 
 China, India, the United States, and Indonesia. This data is from the <a href="https://www.kaggle.com/datasets/iamsouravbanerjee/world-population-dataset?resource=download">world population dataset</a>, 
@@ -278,7 +278,7 @@ This palette is for categorical data when there are two categories.
 
 #### Figure 3: Line chart using the Duo colour palette
 
-![](figures/graph3.svg)
+![](figures/figure3.svg)
 
 This line chart has two lines, one dark blue and one orange. This line chart uses data based on
 the <a href="https://www.kaggle.com/datasets/iamsouravbanerjee/world-population-dataset?resource=download">world population dataset</a>.
@@ -366,7 +366,7 @@ This palette is for data where the order of the data is meaningful, such as for 
 
 #### Figure 4: Bar chart using the Sequential colour palette
 
-![](figures/graph4.svg)
+![](figures/figure4.svg)
 
 This clustered bar chart uses data based on the <a href="https://www.kaggle.com/datasets/elmoallistair/population-by-age-group-2021">population by age dataset</a> and 
 shows data for five countries. The legend is presented in the same order as the bars in the clusters. Data is available with the py_af_colours package.
@@ -451,7 +451,7 @@ This palette should be used when you want to highlight specific elements to help
 
 #### Figure 5: Line chart using the Focus colour palette
 
-![](figures/graph5.svg)
+![](figures/figure5.svg)
 
 This line chart uses data based on the <a href="https://www.kaggle.com/datasets/iamsouravbanerjee/world-population-dataset?resource=download">world population dataset</a>. 
 All lines are light grey, except the line showing the time series for India. Data is available with the py_af_colours package.

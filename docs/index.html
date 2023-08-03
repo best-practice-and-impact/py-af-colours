@@ -178,7 +178,7 @@ table, th, td {
 <p>For example, to return the duo colour palette hex codes:</p>
 <div class="cell" data-execution_count="3">
 <div class="sourceCode" id="cb3"><pre class="sourceCode python cell-code code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>af_colours(<span class="st">"duo"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display" data-execution_count="3">
+<div class="cell-output-display" data-execution_count="11">
 <pre><code>['#12436D', '#F46A25']</code></pre>
 </div>
 </div>
@@ -190,7 +190,7 @@ table, th, td {
 <pre><code>UserWarning: It is best practice to limit graphs to four categories where possible to avoid graphs becoming cluttered.
   af_colours("categorical", "rgb", 5)</code></pre>
 </div>
-<div class="cell-output-display" data-execution_count="4">
+<div class="cell-output-display" data-execution_count="12">
 <pre><code>[(18, 67, 109), (40, 161, 151), (128, 22, 80), (244, 106, 37), (61, 61, 61)]</code></pre>
 </div>
 </div>
@@ -298,7 +298,7 @@ Light purple
 <p><br></p>
 <section id="figure-1-bar-chart-using-the-categorical-colour-palette" class="level4">
 <h4 class="anchored" data-anchor-id="figure-1-bar-chart-using-the-categorical-colour-palette">Figure 1: Bar chart using the Categorical colour palette</h4>
-<p><img src="figures/graph1.svg" class="img-fluid"></p>
+<p><img src="figures/figure1.svg" class="img-fluid"></p>
 <p>This clustered bar chart uses data based on the <a href="https://www.kaggle.com/datasets/iamsouravbanerjee/world-population-dataset?resource=download">world population dataset</a> and shows data for four countries over five years. The legend is presented in the same order as the bars in the clusters. Data is available with the py_af_colours package.</p>
 <div class="cell" data-execution_count="5">
 <div class="sourceCode" id="cb8"><pre class="sourceCode python cell-code code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
@@ -343,7 +343,7 @@ Light purple
 </section>
 <section id="figure-2-pie-chart-using-the-categorical-colour-palette" class="level4">
 <h4 class="anchored" data-anchor-id="figure-2-pie-chart-using-the-categorical-colour-palette">Figure 2: Pie chart using the Categorical colour palette</h4>
-<p><img src="figures/graph2.svg" class="img-fluid"></p>
+<p><img src="figures/figure2.svg" class="img-fluid"></p>
 <p>This a pie chart showing the proportional populations of the four most populous countries, China, India, the United States, and Indonesia. This data is from the <a href="https://www.kaggle.com/datasets/iamsouravbanerjee/world-population-dataset?resource=download">world population dataset</a>, available with the py_af_colours package.</p>
 <div class="cell" data-execution_count="6">
 <div class="sourceCode" id="cb9"><pre class="sourceCode python cell-code code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
@@ -436,7 +436,7 @@ Orange
 <p><br></p>
 <section id="figure-3-line-chart-using-the-duo-colour-palette" class="level4">
 <h4 class="anchored" data-anchor-id="figure-3-line-chart-using-the-duo-colour-palette">Figure 3: Line chart using the Duo colour palette</h4>
-<p><img src="figures/graph3.svg" class="img-fluid"></p>
+<p><img src="figures/figure3.svg" class="img-fluid"></p>
 <p>This line chart has two lines, one dark blue and one orange. This line chart uses data based on the <a href="https://www.kaggle.com/datasets/iamsouravbanerjee/world-population-dataset?resource=download">world population dataset</a>. Data is available with the py_af_colours package.</p>
 <div class="cell" data-execution_count="7">
 <div class="sourceCode" id="cb10"><pre class="sourceCode python cell-code code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
@@ -542,7 +542,7 @@ Light blue
 <p><br></p>
 <section id="figure-4-bar-chart-using-the-sequential-colour-palette" class="level4">
 <h4 class="anchored" data-anchor-id="figure-4-bar-chart-using-the-sequential-colour-palette">Figure 4: Bar chart using the Sequential colour palette</h4>
-<p><img src="figures/graph4.svg" class="img-fluid"></p>
+<p><img src="figures/figure4.svg" class="img-fluid"></p>
 <p>This clustered bar chart uses data based on the <a href="https://www.kaggle.com/datasets/elmoallistair/population-by-age-group-2021">population by age dataset</a> and shows data for five countries. The legend is presented in the same order as the bars in the clusters. Data is available with the py_af_colours package.</p>
 <p>Distinct from previous examples, this section features how to use the rgb list returned by af_colours. It is generally easier to use hex codes, but this example is included for completeness. The end result is the same.</p>
 <p>The spacing in this example is to account for the bar borders, which are required for accessibility purposes.</p>
@@ -638,7 +638,7 @@ Grey
 <p><br></p>
 <section id="figure-5-line-chart-using-the-focus-colour-palette" class="level4">
 <h4 class="anchored" data-anchor-id="figure-5-line-chart-using-the-focus-colour-palette">Figure 5: Line chart using the Focus colour palette</h4>
-<p><img src="figures/graph5.svg" class="img-fluid"></p>
+<p><img src="figures/figure5.svg" class="img-fluid"></p>
 <p>This line chart uses data based on the <a href="https://www.kaggle.com/datasets/iamsouravbanerjee/world-population-dataset?resource=download">world population dataset</a>. All lines are light grey, except the line showing the time series for India. Data is available with the py_af_colours package.</p>
 <div class="cell" data-execution_count="9">
 <div class="sourceCode" id="cb12"><pre class="sourceCode python cell-code code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
