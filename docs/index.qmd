@@ -27,8 +27,6 @@ accessibility of graph outputs generated in Python across the Analysis
 Function by simplifying the process by which users can access the 
 standardised colour palettes.
 
-This guidance is in draft and remains subject to review and approval.
-
 ## Requirements
 To run af_colours in Python, your system requires the following installations:
 
