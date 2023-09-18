@@ -1,4 +1,8 @@
 import warnings
+import yaml
+
+with open("./config/config.yaml") as file:
+     config = yaml.load(file, Loader = yaml.BaseLoader)
 
 def af_colours(palette: str,
                colour_format = "hex",
@@ -42,7 +46,9 @@ def af_colours(palette: str,
     if colour_format.lower() not in ["hex", "rgb"]:
         raise ValueError("colour_format value of " + colour_format +
              " is incorrect, must be hex or rgb as a string.")
-    
+    if number_of_colours < 1:
+         raise ValueError("Choose a number of colours greater than 0.")
+
     elif palette == "sequential":
         chosen_colours_list = sequential_colours(colour_format)
         warnings.warn("This palette should only be used for sequential " +
@@ -95,8 +101,7 @@ def categorical_colours(colour_format = "hex", number_of_colours = 2):
         categorical_colours_list
 
     """
-    categorical_hex_list = ["#12436D","#28A197","#801650",
-                            "#F46A25","#3D3D3D","#A285D1"]
+    categorical_hex_list = config["categorical_hex_list"]
 
     if number_of_colours > 6:
         raise ValueError(
@@ -132,7 +137,7 @@ def duo_colours(colour_format = "hex"):
         duo_colours_list
 
     """
-    duo_hex_list = ["#12436D","#F46A25"]
+    duo_hex_list = config["duo_hex_list"]
     
     if colour_format == "hex":
         duo_colours_list = duo_hex_list
@@ -159,7 +164,7 @@ def sequential_colours(colour_format = "hex"):
 
     """
     
-    sequential_hex_list = ["#12436D", "#2073BC", "#6BACE6"]
+    sequential_hex_list = config["sequential_hex_list"]
     
     if colour_format == "hex":
             sequential_colours_list = sequential_hex_list
@@ -186,7 +191,7 @@ def focus_colours(colour_format = "hex"):
 
     """
     
-    focus_hex_list = ["#12436D","#BFBFBF"]
+    focus_hex_list = config["focus_hex_list"]
     
     if colour_format == "hex":
             focus_colours_list = focus_hex_list
