@@ -5,16 +5,19 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "py_af_colours"
 license = {file = "LICENSE"}
-version = "0.0.1"
+version = "0.2.0"
 authors = [
   { name="Analysis Standards and Pipelines Team", email="asap@ons.gov.uk" },
 ]
-description = "A small example package"
+description = "UK Government Analysis Function recommended colour palettes for creating accessible graphics"
 readme = "README.md"
 requires-python = ">=3.7"
 classifiers = [
     "Programming Language :: Python :: 3",
     "Operating System :: OS Independent",
+]
+dependencies = [
+  'PyYAML >= 5.0',
 ]
 
 [project.urls]
