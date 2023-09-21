@@ -1,7 +1,7 @@
 import warnings
 import yaml
 
-# TODO: Update docstring parameters for config variable
+# TODO: Update docstring parameters for config variable, update docs for config_path
 
 def af_colours(palette: str,
                colour_format = "hex",
