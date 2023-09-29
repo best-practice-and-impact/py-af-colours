@@ -1,7 +1,7 @@
 import pytest
 from py_af_colours import af_colours
 
-unit_test_config_path = "../py_af_colours/config/config.yaml"
+unit_test_config_path = "./py_af_colours/config/config.yaml"
 
 def test_value_errors():
     with pytest.raises(ValueError):
