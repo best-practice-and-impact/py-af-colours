@@ -124,13 +124,14 @@ table, th, td {
 }
 </style>
 <p><br></p>
-<p>This page contains the documentation for the Python package of the Analysis Function’s colour palettes. The <a href="https://github.com/best-practice-and-impact/py-af-colours">py_af_colours package</a> aims to maintain the accessibility of graph outputs generated in Python across the Analysis Function by simplifying the process by which users can access the standardised colour palettes.</p>
+<p>This page contains the documentation for the Python package containing the UK Government Analysis Function’s colour palettes. The <a href="https://github.com/best-practice-and-impact/py-af-colours">py_af_colours package</a> aims to maintain the accessibility of graph outputs generated in Python across the Analysis Function by simplifying the process by which users can access the standardised colour palettes.</p>
+<p>py_af_colours sits alongside an R equivalent, <a href="https://github.com/best-practice-and-impact/afcolours">af_colours</a>.</p>
 <section id="requirements" class="level2">
 <h2 class="anchored" data-anchor-id="requirements">Requirements</h2>
 <p>To run af_colours in Python, your system requires the following installations:</p>
 <ol type="1">
-<li>Python 3.<br>
-</li>
+<li>Python 3.</li>
+<li>the PyYAML package.</li>
 <li>the <a href="https://github.com/best-practice-and-impact/py-af-colours">py_af_colours package</a>.</li>
 </ol>
 </section>
@@ -139,7 +140,7 @@ table, th, td {
 <ol type="1">
 <li>Clone the github repository.<br>
 </li>
-<li>In anaconda powershell, cd to the drive this is saved on.</li>
+<li>In anaconda powershell, navigate to the drive this is saved on.</li>
 <li>Run:</li>
 </ol>
 <pre class="{shell}"><code>pip install -e &lt;path to py_af_colours folder&gt;</code></pre>
@@ -147,11 +148,11 @@ table, th, td {
 </section>
 <section id="how-to-obtain-colours" class="level2">
 <h2 class="anchored" data-anchor-id="how-to-obtain-colours">How to obtain colours</h2>
-<p>In your python environment, import the py_af_colours package:</p>
+<p>In your python environment, import the af_colours function:</p>
 <div class="cell" data-execution_count="2">
 <div class="sourceCode" id="cb2"><pre class="sourceCode python cell-code code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> py_af_colours <span class="im">import</span> af_colours</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>The af_colours function takes three arguments: palette, colour_format, and number_of_colours.</p>
+<p>The af_colours function takes four arguments: palette, colour_format, number_of_colours, and config_path.</p>
 <ul>
 <li><p>palette is a required parameter, chosen by the user based on the <a href="https://analysisfunction.civilservice.gov.uk/policy-store/data-visualisation-colours-in-charts/">Analysis Function colour guidance</a>. It takes one of four possible string values corresponding to the options:</p>
 <ul>
@@ -169,6 +170,7 @@ table, th, td {
 <li>“rgb”; meaning red green blue colour code, for example (18, 67, 109).</li>
 </ul></li>
 <li><p>number_of_colours is an optional parameter for the categorical palette. It takes an integer value up to 6.</p></li>
+<li><p>config_path is an optional parameter that links to where the palette values are stored. It is not recommended for the user to specify a value for this parameter (see Basic examples) This should not be changed unless the user moves the file.</p></li>
 </ul>
 <p>af_colours returns hex codes as a list of strings, and rgb codes as a list of tuples.</p>
 </section>
@@ -177,7 +179,7 @@ table, th, td {
 <p>For example, to return the duo colour palette hex codes:</p>
 <div class="cell" data-execution_count="3">
 <div class="sourceCode" id="cb3"><pre class="sourceCode python cell-code code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>af_colours(<span class="st">"duo"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display" data-execution_count="3">
+<div class="cell-output-display" data-execution_count="23">
 <pre><code>['#12436D', '#F46A25']</code></pre>
 </div>
 </div>
@@ -189,11 +191,11 @@ table, th, td {
 <pre><code>UserWarning: It is best practice to limit graphs to four categories where possible to avoid graphs becoming cluttered.
   af_colours("categorical", "rgb", 5)</code></pre>
 </div>
-<div class="cell-output-display" data-execution_count="4">
+<div class="cell-output-display" data-execution_count="24">
 <pre><code>[(18, 67, 109), (40, 161, 151), (128, 22, 80), (244, 106, 37), (61, 61, 61)]</code></pre>
 </div>
 </div>
-<p>See also that a warning is given for colours lists greater than four to let the user know that for best practice, it is preferable to use a limit of four categories.</p>
+<p>See also that a warning is given for colours lists greater than four to let the user know that for accessibility best practice, it is prefered to use a limit of four categories.</p>
 </section>
 <section id="application" class="level2">
 <h2 class="anchored" data-anchor-id="application">Application</h2>
@@ -698,7 +700,8 @@ Grey
 </section>
 <section id="maintenance" class="level2">
 <h2 class="anchored" data-anchor-id="maintenance">Maintenance</h2>
-<p>The package includes a function hex_to_rgb for generating the rgb color codes. In the event the Analysis Function colour palettes change, only the hex codes need be updated. This guidance page will undergo updates as changes to the package are rolled out.</p>
+<p>The Analysis Function colour palettes are stored inside the config file as hex codes, so that in the event of future updates to the colours, package maintenance can be contained to this file.</p>
+<p>This guidance page will undergo continual updates as changes to the package are rolled out.</p>
 </section>
 </main>
 <!-- /main column -->
