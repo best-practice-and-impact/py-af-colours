@@ -1,16 +1,16 @@
 import warnings
 import yaml
-
-# TODO: Update docstring parameters for config variable, update docs for config_path
+from pathlib import Path
 
 def af_colours(palette: str,
                colour_format = "hex",
                number_of_colours = 6,
-               config_path = "./config/config.yaml"):
+               config_path = None):
     """ 
-    Return the chosen Analysis Function colour palette in hex or rgb
-    format. For the categorical palette, this can be a chosen number of
-    colours up to 6.
+    af_colours is the top level function in py_af_colours. This returns
+    the chosen Analysis Function colour palette in hex or rgb format.
+    For the categorical palette, this can be a chosen number of colours
+    up to 6.
 
     Parameters
     ----------
@@ -18,14 +18,19 @@ def af_colours(palette: str,
         Type of palette required, with accepted values of "duo",
         "focus", "categorical", and "sequential".
 
-    colour_format : string
+    colour_format : string, optional
         Colour format required, with accepted values of "hex" or "rgb".
 
-    number_of_colours : int
+    number_of_colours : int, optional
         Number of colours required (categorical palette only). Takes
         values between 2 and 6. Returns 2 colours by default. If a
         palette other than categorical is chosen, any value passed
         is ignored.
+    
+    config_path : NoneType, optional
+        Takes the default value None, inside the function this is
+        mapped to the relative path independent of operating system.
+        Should not require changing.
 
     Raises
     ------
@@ -39,6 +44,10 @@ def af_colours(palette: str,
         chosen_colours_list
 
     """
+    if config_path is None:
+        parent_dir = Path(__file__).parent
+        config_path = parent_dir.joinpath("config", "config.yaml")
+
     with open(config_path) as file:
         config = yaml.load(file, Loader = yaml.BaseLoader)
     

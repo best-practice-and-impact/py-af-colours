@@ -30,8 +30,9 @@ standardised colour palettes.
 ## Requirements
 To run af_colours in Python, your system requires the following installations:
 
-1. Python 3.  
-2. the [py_af_colours package](https://github.com/best-practice-and-impact/py-af-colours).
+1. Python 3.
+2. the PyYAML package.
+3. the [py_af_colours package](https://github.com/best-practice-and-impact/py-af-colours).
 
 
 ## Installing py_af_colours
