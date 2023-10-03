@@ -21,11 +21,14 @@ import pandas as pd
 
 </br>
 
-This page contains the documentation for the Python package of the Analysis 
-Function’s colour palettes. The [py_af_colours package](https://github.com/best-practice-and-impact/py-af-colours) aims to maintain the 
-accessibility of graph outputs generated in Python across the Analysis 
+This page contains the documentation for the Python package containing the
+UK Government Analysis Function’s colour palettes.
+The [py_af_colours package](https://github.com/best-practice-and-impact/py-af-colours)
+aims to maintain the accessibility of graph outputs generated in Python across the Analysis 
 Function by simplifying the process by which users can access the 
 standardised colour palettes.
+
+py_af_colours sits alongside an R equivalent, [af_colours](https://github.com/best-practice-and-impact/afcolours).
 
 ## Requirements
 To run af_colours in Python, your system requires the following installations:
@@ -37,7 +40,7 @@ To run af_colours in Python, your system requires the following installations:
 
 ## Installing py_af_colours
 1. Clone the github repository.  
-2. In anaconda powershell, cd to the drive this is saved on.
+2. In anaconda powershell, navigate to the drive this is saved on.
 3. Run:
 
 ```{shell}
@@ -47,14 +50,14 @@ pip install -e <path to py_af_colours folder>
 This process may change when py_af_colours goes live on PyPI and artifactory.
 
 ## How to obtain colours
-In your python environment, import the py_af_colours package:
+In your python environment, import the af_colours function:
 
 ```{python}
 from py_af_colours import af_colours
 ```
 
-The af_colours function takes three arguments: palette, colour_format, 
-and number_of_colours.
+The af_colours function takes four arguments: palette, colour_format,
+number_of_colours, and config_path.
 
 
 - palette is a required parameter, chosen by the user based on the 
@@ -71,6 +74,10 @@ It takes one of four possible string values corresponding to the options:
     - "rgb"; meaning red green blue colour code, for example (18, 67, 109).
 
 - number_of_colours is an optional parameter for the categorical palette. It takes an integer value up to 6.
+
+- config_path is an optional parameter that links to where the palette values are stored.
+It is not recommended for the user to specify a value for this parameter (see Basic examples)
+This should not be changed unless the user moves the file.
 
 af_colours returns hex codes as a list of strings, and rgb codes as a list of tuples.
 
@@ -89,8 +96,8 @@ To return a five colour categorical palette as rgb codes:
 af_colours("categorical", "rgb", 5)
 ```
 
-See also that a warning is given for colours lists greater than four to let the user know that for best practice, it is
-preferable to use a limit of four categories.
+See also that a warning is given for colours lists greater than four to let the user know that for accessibility
+best practice, it is prefered to use a limit of four categories.
 
 
 ## Application
@@ -515,6 +522,8 @@ plt.show()
 <br>
 
 ## Maintenance
-The package includes a function hex_to_rgb for generating the rgb color codes.
-In the event the Analysis Function colour palettes change, only the hex codes need be updated.
-This guidance page will undergo updates as changes to the package are rolled out.
+The Analysis Function colour palettes are stored inside the config file as hex codes,
+so that in the event of future updates to the colours, package maintenance can be
+contained to this file.
+
+This guidance page will undergo continual updates as changes to the package are rolled out.
