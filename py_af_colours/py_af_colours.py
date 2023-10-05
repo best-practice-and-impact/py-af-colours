@@ -82,6 +82,7 @@ def af_colours(palette: str,
         chosen_colours_list = duo_colours(duo_hex_list, colour_format)
     elif palette == "categorical":
         chosen_colours_list = categorical_colours(categorical_hex_list,
+                                                  duo_hex_list,
                                                   colour_format,
                                                   number_of_colours)
     
@@ -93,7 +94,7 @@ def af_colours(palette: str,
     return chosen_colours_list
 
 
-def categorical_colours(categorical_hex_list, colour_format = "hex", number_of_colours = 2):
+def categorical_colours(categorical_hex_list, duo_hex_list, colour_format = "hex", number_of_colours = 2):
     """ 
     Return the Analysis Function categorical colour palette as a list
     in hex or rgb format for up to 6 colours. If number_of_colours is 
@@ -101,12 +102,19 @@ def categorical_colours(categorical_hex_list, colour_format = "hex", number_of_c
 
     Parameters
     ----------
+    categorical_hex_list : list
+        List of categorical colours as a hex list, stored in the config.
+    
+    duo_hex_list : list
+        List of duo hex codes, stored in the config. This is needed for the
+        case of number_of_colours = 2.
+
     colour_format : string
         Colour format required, with accepted values of "hex" or "rgb".
 
     number_of_colours : int
-        Number of colours required, with accepted values between 2 and 6 inclusive.
-        Returns 2 colours if no value given.
+        Number of colours required, with accepted values between 2 and 6
+        inclusive. Returns 2 colours if no value given.
 
     Raises
     ------
@@ -119,12 +127,11 @@ def categorical_colours(categorical_hex_list, colour_format = "hex", number_of_c
         categorical_colours_list
 
     """
-
     if number_of_colours > 6:
         raise ValueError(
              "number_of_colours must not be more than 6 for the categorical palette.")
     if number_of_colours == 2:
-        categorical_colours_list = duo_colours(colour_format)
+        categorical_colours_list = duo_colours(duo_hex_list, colour_format)
         return categorical_colours_list
 
     elif colour_format == "hex":
@@ -145,6 +152,10 @@ def duo_colours(duo_hex_list, colour_format = "hex"):
 
     Parameters
     ----------
+    duo_hex_list : list
+        List of duo colours hex codes, stored in the config. This is needed for the
+        case of number_of_colours = 2.
+    
     colour_format : string
         Colour format required, with accepted values of "hex" or "rgb".
 
@@ -170,6 +181,9 @@ def sequential_colours(sequential_hex_list, colour_format = "hex"):
 
     Parameters
     ----------
+    sequential_hex_list : list
+        List of sequential colours hex codes, stored in the config.
+
     colour_format : string
         Colour format required, with accepted values of "hex" or "rgb".
 
@@ -195,6 +209,9 @@ def focus_colours(focus_hex_list, colour_format = "hex"):
 
     Parameters
     ----------
+    focus_hex_list : list
+        List of focus colours hex codes, stored in the config.
+
     colour_format : string
         Colour format required, with accepted values of "hex" or "rgb".
 
