@@ -7,7 +7,7 @@ unit_test_config_path = "./py_af_colours/config/config.yaml"
     [("duo", "hex", 2, unit_test_config_path,
       af_colours("duo", "hex", 2, unit_test_config_path)),  
      ("categorical", "hex", 2, unit_test_config_path,
-      af_colours("duo", "hex", 2, unit_test_config_path)),],)
+      af_colours("duo", "hex", 2, unit_test_config_path))])
 
 def test_categorical_two_equals_duo_hex(palette, colour_format,
                                         number_of_colours, config_path, expected):
@@ -19,7 +19,7 @@ def test_categorical_two_equals_duo_hex(palette, colour_format,
     [("duo", "rgb", 2, unit_test_config_path,
       af_colours("duo", "rgb", 2, unit_test_config_path)),
      ("categorical", "rgb", 2, unit_test_config_path,
-      af_colours("duo", "rgb", 2, unit_test_config_path)),],)
+      af_colours("duo", "rgb", 2, unit_test_config_path))])
 
 def test_categorical_two_equals_duo_rgb(palette, colour_format,
                                         number_of_colours, config_path, expected):
