@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 
 setup(
     name = "py_af_colours",
-    version = "1.0.5",
+    version = "1.0.6",
     author = "Analysis standards and Pipelines team",
     author_email = "asap@ons.gov.uk",
     url = "https://best-practice-and-impact.github.io/py-af-colours/",
@@ -12,4 +12,5 @@ setup(
         ],
     packages = find_packages(),
     include_package_data=True,
+    package_data={"py_af_colours": ["config/*.yaml"]}
 )
