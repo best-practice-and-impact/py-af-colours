@@ -39,15 +39,14 @@ To run af_colours in Python, your system requires the following installations:
 
 
 ## Installing py_af_colours
-1. Clone the github repository.  
-2. In anaconda powershell, navigate to the drive this is saved on.
-3. Run:
+py_af_colours is now on [PyPI](https://pypi.org/project/py-af-colours/). To install the package:
+
+1. Open the anaconda powershell;
+2. Run:
 
 ```{shell}
-pip install -e <path to py_af_colours folder>
+pip install py-af-colours
 ```
-
-This process may change when py_af_colours goes live on PyPI and artifactory.
 
 ## How to obtain colours
 In your python environment, import the af_colours function:
