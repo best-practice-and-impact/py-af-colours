@@ -137,14 +137,12 @@ table, th, td {
 </section>
 <section id="installing-py_af_colours" class="level2">
 <h2 class="anchored" data-anchor-id="installing-py_af_colours">Installing py_af_colours</h2>
+<p>py_af_colours is now on <a href="https://pypi.org/project/py-af-colours/">PyPI</a>. To install the package:</p>
 <ol type="1">
-<li>Clone the github repository.<br>
-</li>
-<li>In anaconda powershell, navigate to the drive this is saved on.</li>
+<li>Open the anaconda powershell;</li>
 <li>Run:</li>
 </ol>
-<pre class="{shell}"><code>pip install -e &lt;path to py_af_colours folder&gt;</code></pre>
-<p>This process may change when py_af_colours goes live on PyPI and artifactory.</p>
+<pre class="{shell}"><code>pip install py-af-colours</code></pre>
 </section>
 <section id="how-to-obtain-colours" class="level2">
 <h2 class="anchored" data-anchor-id="how-to-obtain-colours">How to obtain colours</h2>
@@ -179,7 +177,7 @@ table, th, td {
 <p>For example, to return the duo colour palette hex codes:</p>
 <div class="cell" data-execution_count="3">
 <div class="sourceCode" id="cb3"><pre class="sourceCode python cell-code code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>af_colours(<span class="st">"duo"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display" data-execution_count="23">
+<div class="cell-output-display" data-execution_count="3">
 <pre><code>['#12436D', '#F46A25']</code></pre>
 </div>
 </div>
@@ -191,7 +189,7 @@ table, th, td {
 <pre><code>UserWarning: It is best practice to limit graphs to four categories where possible to avoid graphs becoming cluttered.
   af_colours("categorical", "rgb", 5)</code></pre>
 </div>
-<div class="cell-output-display" data-execution_count="24">
+<div class="cell-output-display" data-execution_count="4">
 <pre><code>[(18, 67, 109), (40, 161, 151), (128, 22, 80), (244, 106, 37), (61, 61, 61)]</code></pre>
 </div>
 </div>
