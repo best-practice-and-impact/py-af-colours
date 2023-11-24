@@ -1,7 +1,11 @@
 # Contributing
 When contributing to this repository, please first discuss the change you wish
-to make, added functionality you'd like to see, or bug you've found via raising a 
-github issue or emailing ASAP@ons.gov.uk.
+to make, added functionality you'd like to see, or bug you've found via one
+of the following:
+- Raising a github issue using the issue template;
+- Emailing ASAP@ons.gov.uk;
+- Contacting the py-af-colours team on the data-vis govdatascience channel;
+- Using the Accessibility and Presentation/Dissemination of Statistics Basecamp groups.
 
 ## Pull/merge request process
 1. Branch from the `main` branch. If you are implementing a feature name it
